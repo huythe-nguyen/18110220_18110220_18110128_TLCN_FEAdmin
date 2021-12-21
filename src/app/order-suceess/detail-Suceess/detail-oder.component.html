@@ -1,0 +1,121 @@
+<div id="newsEdit">
+  <form #productAddForm="ngForm">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông Tin Đơn Hàng</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-message></app-message>
+        <div *ngIf="doing" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa spin"></i>
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Tên khách hàng</label>
+              <input type="text" name="displayName" id="displayName" value="{{oder.displayName}}"
+                class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group">
+              <label class="bmd-label-floating">E-mail</label>
+              <input type="text" name="email" id="email" value="{{oder.email}}" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="bmd-label-floating">Phone</label>
+              <input type="text" name="phone" id="phone" value="{{oder.phone}}" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Address</label>
+              <input type="text" name="address" id="address" value="{{oder.address}}" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Country</label>
+              <input type="text" name="country" id="country" value="{{oder.country}}" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">City</label>
+              <input type="text" name="city" id="city" value="{{oder.city}}" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ngày đặt hàng</label>
+              <input type="date" name="dateOder" id="dateOder" [value]="oder.timeOrder|date: 'yyyy-MM-dd'"
+                class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ngày dự kiến nhận hàng</label>
+              <input type="date" name="timeSucess" id="timeSucess" [(ngModel)]="oder.timeSucess"
+                value="{{oder.timeSucess|date: 'yyyy-MM-dd'}}" formControlName="timeSucess" class="form-control" />
+            </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Mã giỏ hàng</label>
+                <input type="text" name="idCart" id="idCart" value="{{oder.id}}" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Tổng tiền </label>
+                <input type="text" name="total" id="total" value="{{oder.total}}" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Mã đơn hàng </label>
+                <input type="text" name="total" id="total" [(ngModel)]="oder.codeOder" class="form-control" />
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label class="bmd-label-floating">Trạng thái</label>
+            <select
+              name="status" id="status"
+              [(ngModel)]="oder.state"
+
+              class="custom-select mb-3"
+            >
+            <option value="success">Giao hàng thành công</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <label class="bmd-label-floating">Ghi chú</label>
+            <textarea style="height: 300px;" type="text" name="description" id="description"
+              formControlName="description" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
+    <button  rel="tooltip" title="Edit Task"
+    class="btn btn-sm btn-outline-primary " (click)="open(content)">
+    <i class="fas fa-edit"></i></button>
+  </form>
+</div>

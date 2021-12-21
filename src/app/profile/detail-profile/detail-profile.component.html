@@ -1,0 +1,74 @@
+<div id="newsEdit">
+  <form #productAddForm="ngForm" >
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông tin thành viên</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-message></app-message>
+        <div *ngIf="doing" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa spin"></i>
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Họ và Tên</label>
+              <input type="text" name="displayName" id="displayName" [(ngModel)]="employee.displayName" 
+                class="form-control" />
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">E-mail</label>
+                <input type="text" name="email" id="email" [(ngModel)]="employee.email"
+                   class="form-control" />
+              </div>
+            </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Phone</label>
+              <input type="text" name="phone" id="phone" [(ngModel)]="employee.phone"
+                 class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="bmd-label-floating">Address</label>
+              <input type="text" name="address" id="address" [(ngModel)]="employee.address"
+                 class="form-control" />
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+              <label class="bmd-label-floating">Country</label>
+              <input type="text" name="country" id="country" [(ngModel)]="employee.country"
+                 class="form-control" />
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+              <label class="bmd-label-floating">City</label>
+              <input type="text" name="city" id="city" [(ngModel)]="employee.city"
+                class="form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" >
+
+        <button type="button" class="btn btn-secondary pri" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
+    <button rel="tooltip" title="detail user" class="btn btn-sm btn-outline-primary " (click)="open(content)">
+      <i class="fas fa-edit"></i></button>
+  </form>
+</div>

@@ -1,0 +1,139 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+    <div class="container-fluid page">
+      <div class="d-flex page__box p-3 mt-2">News</div>
+      <div class="page__content shadow p-3 position-relative">
+        <div class="content">
+          <div class="container-fluid">
+            <!---->
+            <div class="alert alert-success">
+              <span>BÀI VIẾT ĐÃ ĐĂNG</span>
+            </div>
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <span class="nav-tabs-title">BÀI VIẾT</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="profile"></div>
+                  </div>
+                  <div class="container mt-3">
+                    <form action="/action_page.php">
+                      <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                          <div class="input-group no-border">
+                            <input
+                            type="text"
+                            [(ngModel)]="key"
+                            (ngModelChange)="Search()"
+                            name="key"
+                            class="form-control"
+                            placeholder="Nhập..."
+                          />
+                          <button
+                            type="submit"
+                            class="btn btn-white btn-round btn-just-icon"
+                            (click)="search(key)"
+                          >
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                          </button>
+
+                          </div>
+                          <div>
+                            <app-add-news></app-add-news>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <app-message></app-message>
+                      <div class="card-body" >
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class="text-primary">
+                              <th>No</th>
+                              <th>Mã bài viết</th>
+                              <th>Tên bài viết</th>
+                              <th>Mô tả</th>
+                              <th>Ngày bắt đầu</th>
+                              <th>Ngày kết thúc</th>
+                              <th>Trạng thái</th>
+                              <th></th>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of news,let i =index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ item.codeTitle }}</td>
+                                <td style="width: 150px;">{{ item.title }}</td>
+                                <td style="width: 300px;">{{ item.description }}</td>
+                                <td>{{ item.starDay |date }}</td>
+                                <td>{{ item.endDay |date }}</td>
+                                <td>{{ item.state }}</td>
+                                <td>
+                                 <app-edit-news [id]="item.id" (updateFinished)="finishAndAlert($event)">
+
+                                 </app-edit-news>
+
+                                 <a (click)="confirmDeleteNew(content, item.id,item.title)"
+                                 class="btn btn-sm btn-outline-danger">
+                                 <i class="fas fa-trash "></i>
+                               </a>
+                                 </td>
+                               </tr>
+                             </tbody>
+                           </table>
+                         </div>
+                         <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            <li class="page-item" (click)="Loadpage(pages-1)"><a class="page-link">Previous</a></li>
+                            <input class="page-link" style="width: 50px;" type="number" name="pages" [(ngModel)]="pages"
+                            (ngModelChange)="Loadpage(pages)" />
+                            <li class="page-item" (click)="Loadpage(pages+1)"><a class="page-link">Next</a></li>
+                            <label class="page-link">Size</label>
+                            <select class="page-link" [(ngModel)]="sizes" (click)="Loadsize(sizes)">
+                              <option value=5>5</option>
+                              <option value=10>10</option>
+                              <option value=15>15</option>
+                            </select>
+                          </ul>
+                        </nav>
+                       </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <ng-template #content let-c="close" let-d="dismiss">
+           <div class="modal-header">
+             <h4 class="modal-title">Xóa Bai viet</h4>
+             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+               <span aria-hidden="true">&times;</span>
+             </button>
+
+           </div>
+           <div class="modal-body">
+             <p>{{confirmMessage}}</p>
+           </div>
+           <div class="modal-footer">
+             <button class=" btn btn-sm btn-ouline-danger" (click)="delete()">Yes</button>
+             <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+           </div>
+         </ng-template>
+       </div>
+     </div>
+
+  </mat-drawer-content>
+</mat-drawer-container>

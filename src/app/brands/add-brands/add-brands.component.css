@@ -1,0 +1,9 @@
+.err {
+  color: rgb(240, 14, 14) !important;
+}
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+.form-control.ng-touched.ng-valid {
+  border: 1px solid green;
+}

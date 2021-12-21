@@ -1,0 +1,66 @@
+<div id="detailcart" >
+  <form #productAddForm="ngForm">
+    <ng-template #content let-c="close" let-d="dismiss" >
+      <div class="modal-header" style="width: 1000px; background-color: rgb(131, 193, 247);">
+        <h4 class="modal-title">Thông tin giỏ hàng</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body"  style="width: 1000px; background-color: white;">
+        <div *ngIf="doing" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa spin"></i>
+          </h1>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <th>No</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá SP</th>
+                <th>Thành tiền</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cart.products, let i = index ">
+                  <td>{{i+1}}</td>
+                  <td>{{item.product}}</td>
+                  <td> {{item.productName}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.price |number: '2.'}}</td>
+                  <td class="text-primary">{{item.Total|number: '2.'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+              <label style="text-align: right;">Tổng tiền :</label>
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+              <input type="text" name="subTotal" id="subTotal" class="text-primary" [ngModel]="cart.total|number: '2.'" value="subTotal |currency: 'USD':'symbol':'1.1'"
+                class="form-control" />
+            </div>
+          </div>
+        </div>
+        </div>
+      <div class="modal-footer" style="width: 1000px; background-color: aliceblue;" >
+
+        <button type="button" class="btn btn-secondary pri" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
+    <button rel="tooltip" title="detail user" class="btn btn-sm btn-outline-primary " (click)="open(content)">
+      <i class="fas fa-edit"></i></button>
+  </form>
+</div>

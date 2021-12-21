@@ -1,0 +1,151 @@
+
+<div id="newsadd">
+  <form #productAddForm="ngForm" [formGroup]="infoNew">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Thêm Bài Viết</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-message></app-message>
+        <div *ngIf="saving" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa spin"></i> </h1>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Tên bài viết</label>
+              <input
+                type="text" name="title" id="title"
+                [(ngModel)]="news.title"
+                formControlName="title"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('title')?.valid && infoNew.get('title')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập tên bài viết</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.title.valid"></i>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Mã bài viết</label>
+              <input
+                type="text" name="codeTitle" id="codeTitle"
+                [(ngModel)]="news.codeTitle"
+                formControlName="codeTitle"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('codeTitle')?.valid && infoNew.get('codeTitle')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập mã bài viết</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.codeTitle.valid"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Mô tả</label>
+              <textarea style="height: 200px;"
+              type="text" name="description" id="description"
+              [(ngModel)]="news.description"
+              formControlName="description"
+              class="form-control"
+            ></textarea>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('description')?.valid && infoNew.get('description')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng nhập mô tả</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.description.valid"></i>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Hình Ảnh</label>
+              <input
+                type="url" name="imgs" id="imgs"
+                [(ngModel)]="news.imgs"
+                formControlName="imgs"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('imgs')?.valid && infoNew.get('imgs')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng kiểm tra link ảnh</small>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group" *ngIf="news.imgs">
+                <img style="height: 300px; width: 450px; "
+                 [src]="news.imgs"
+                />
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ngày đăng bài</label>
+              <input
+                type="date" name="starDay" id="starDay"
+                [(ngModel)]="news.starDay"
+                formControlName="starDay"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('starDay')?.valid && infoNew.get('starDay')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập ngày bắt đầu</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.starDay.valid"></i>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ngày gỡ bài đăng</label>
+              <input
+                type="date" name="endDay" id="endDay"
+                [(ngModel)]="news.endDay"
+                [min]="news.starDay"
+                formControlName="endDay"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('endDay')?.valid && infoNew.get('endDay')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng ngày kết thúc</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.endDay.valid"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label class="bmd-label-floating">Trạng thái</label>
+            <select
+              name="state" id="state"
+              [(ngModel)]="news.state"
+              formControlName="state"
+              class="custom-select mb-3"
+            >
+              <option value="cho" selected>Chờ</option>
+              <option value="dang">Đã đăng</option>
+              <option value="kt">Kết thúc</option>
+            </select>
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('state')?.valid && infoNew.get('state')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng chọn trạng thái</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.state.valid"></i>
+          </div>
+
+      </div>
+      </div>
+      <app-message></app-message>
+      <div class="modal-footer" *ngIf="infoNew.valid">
+        <button type="submit" class="btn btn-primary pull-right" (click)="save()">Thêm</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
+    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">THÊM BÀI VIẾT</button>
+  </form>
+</div>

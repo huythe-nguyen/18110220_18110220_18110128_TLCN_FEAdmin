@@ -1,0 +1,296 @@
+<div id="productEdit">
+  <form #productAddForm="ngForm" [formGroup]="infoproduct">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Project</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-message></app-message>
+        <div *ngIf="doing" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa spin"></i> </h1>
+            <div *ngIf="!doing"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Tên sản phẩm</label>
+              <input
+                type="text" name="productName" id="productName"
+                formControlName="productName"
+                [(ngModel)]="product.productName"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('productName')?.valid && infoproduct.get('productName')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập tên sản phẩm</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.productName.valid"></i>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Mã sản phẩm</label>
+              <input
+                type="text" name="productCode" id="productCode"
+                formControlName="productCode"
+                [(ngModel)]="product.productCode"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('productCode')?.valid && infoproduct.get('productCode')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập mã sản phẩm</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.productCode.valid"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="bmd-label-floating">Size</label>
+              <input
+                type="number" name="size" id="size"
+                formControlName="size"
+                [(ngModel)]="product.size"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('size')?.valid && infoproduct.get('size')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập size</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.size.valid"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="bmd-label-floating">Số lượng</label>
+              <input
+                type="number" name="amount" id="amount"
+                formControlName="amount"
+                [(ngModel)]="product.amount"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('amount')?.valid && infoproduct.get('amount')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập số lượng</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.amount.valid"></i>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="bmd-label-floating">Giá gốc</label>
+              <input
+                type="text" name="price" id="price"
+                formControlName="price"
+                [(ngModel)]="product.price"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('price')?.valid && infoproduct.get('price')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập giá sản phẩm</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.price.valid"></i>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="bmd-label-floating">Thương hiệu</label>
+            <select
+              name="brand" id="brand"
+              formControlName="brand"
+              [(ngModel)]="product.brand"
+              class="custom-select mb-3"
+            >
+            <option *ngFor="let item of brand" [value]="item.nameBrand">{{item.nameBrand}}</option>
+            </select>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('brand')?.valid && infoproduct.get('brand')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng chọn thương hiệu</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.brand.valid"></i>
+          </div>
+          <div class="col-md-4">
+            <label class="bmd-label-floating">Giới tính</label>
+            <select
+              name="gender" id="gender"
+              [(ngModel)]="product.gender"
+              formControlName="gender"
+              class="custom-select mb-4"
+            >
+              <option value="nam" selected>Nam</option>
+              <option value="nu">Nữ</option>
+            </select>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('gender')?.valid && infoproduct.get('gender')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng chọn giới tính</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.gender.valid"></i>
+          </div>
+          <div class="col-md-4">
+            <label class="bmd-label-floating">Màu</label>
+            <select
+              name="colour" id="colour"
+              [(ngModel)]="product.colour"
+              formControlName="colour"
+              class="custom-select mb-3"
+            >
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="other">other</option>
+            </select>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('colour')?.valid && infoproduct.get('colour')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng chọn màu</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.colour.valid"></i>
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-md-4">
+            <label class="bmd-label-floating">Loại hàng</label>
+            <select
+              name="status"
+              [(ngModel)]="product.status"
+              formControlName="status"
+              class="custom-select mb-3"
+            >
+              <option value="new" selected>New</option>
+              <option value="seconhand">Seconhand</option>
+            </select>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('status')?.valid && infoproduct.get('status')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng chọn loại hàng</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.status.valid"></i>
+          </div>
+          <div class="col-md-4">
+            <label class="bmd-label-floating">Loại hàng nhập</label>
+            <select
+              name="selling"
+              formControlName="selling"
+              [(ngModel)]="product.selling"
+              class="custom-select mb-3"
+            >
+              <option value="new" selected>Hàg mới nhập</option>
+              <option value="seconhand">Hàng đã nhập</option>
+              <option value="sale">Hàng hot sale</option>
+            </select>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('selling')?.valid && infoproduct.get('selling')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng chọn loại hàng</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.selling.valid"></i>
+          </div>
+          <div class="col-md-4">
+            <label class="bmd-label-floating">Giảm giá</label>
+            <select
+              name="priceSale"
+              formControlName="priceSale"
+              [(ngModel)]="product.priceSale"
+              class="custom-select mb-3"
+            >
+            <option [value]="product.price" selected>0%</option>
+            <option [value]="product.price-(0.05*product.price)">5%</option>
+            <option [value]="product.price-(0.1*product.price)">10%</option>
+            </select>
+            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('priceSale')?.valid && infoproduct.get('priceSale')?.touched " >
+              <i class="fa fa-times-circle" style="color:firebrick;"></i>
+               vui lòng nhập mã thương hiêu</small>
+               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.priceSale.valid"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ảnh chính</label>
+              <input
+                type="url" name="productImg1" id="productImg1"
+                [(ngModel)]="product.productImg1"
+                formControlName="productImg1"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('productImg1')?.valid && infoproduct.get('productImg1')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 link ảnh chưa đúng!</small>
+
+            </div>
+          </div>
+            <div class="col-md-12">
+              <div class="form-group" *ngIf="product.productImg1">
+                <img style="height: 300px; width: 450px;"
+                 [src]="product.productImg1"
+                />
+              </div>
+            </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ảnh phụ</label>
+              <input
+                type="url" name="productImg2" id="productImg2"
+                [(ngModel)]="product.productImg2"
+                formControlName="productImg2"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('productImg2')?.valid && infoproduct.get('productImg2')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 link ảnh chưa đúng!</small>
+
+            </div>
+            <div class="col-md-12">
+              <div class="form-group" *ngIf="product.productImg2">
+                <img style="height: 300px; width: 450px;"
+                 [src]="product.productImg2"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ảnh phụ</label>
+              <input
+                type="url" name="productImg3"
+                [(ngModel)]="product.productImg3"
+                formControlName="productImg3"
+                class="form-control"
+              />
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('productImg3')?.valid && infoproduct.get('productImg3')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 link ảnh chưa đúng!</small>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group" *ngIf="product.productImg3">
+              <img style="height: 300px; width: 450px;"
+               [src]="product.productImg1"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Mô tả</label>
+              <textarea style="height: 300px;"
+                type="text" name="description" id="description"
+                formControlName="description"
+                [(ngModel)]="product.description"
+                class="form-control"
+              ></textarea>
+              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoproduct.get('description')?.valid && infoproduct.get('description')?.touched " >
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                 vui lòng nhập mô tả</small>
+                 <i class="fa fa-check-circle" style="color:green;" *ngIf="infoproduct.controls.description.valid"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"  *ngIf="infoproduct.valid">
+        <button type="button" class="btn btn-primary pull-right" (click)="update()">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
+    <button  rel="tooltip" title="Edit Task"
+    class="btn btn-sm btn-outline-primary " (click)="open(content)">
+    <i class="fas fa-edit"></i></button>
+  </form>
+</div>

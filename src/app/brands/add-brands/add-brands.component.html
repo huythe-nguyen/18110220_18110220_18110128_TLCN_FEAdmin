@@ -1,0 +1,104 @@
+<div id="brandAdd">
+  <form #productAddForm="ngForm">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Thêm Thương Hiệu</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="infoBrand">
+        <div class="modal-body">
+          <app-message></app-message>
+          <div *ngIf="saving" class="m-auto">
+            <h1 class="text-center display-3 mt-5">
+              <i class="fas fa-spinner fa spin"></i>
+            </h1>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Tên thương hiệu</label>
+                <input type="text" id="nameBrand" formControlName="nameBrand" [(ngModel)]="brand.nameBrand"
+                  class="form-control" name="nameBrand" /> <i class="fa fa-check-circle" style="color:green;"
+                  *ngIf="f.nameBrand.valid"></i>
+                <div *ngIf="f.nameBrand.invalid && (f.nameBrand.dirty||f.nameBrand.touched)">
+                  <div *ngIf="f.nameBrand.errors">
+                    <div>
+                      <small id="nameBrandHelp" class="form-text text-muted err" *ngIf="f.nameBrand.errors.required">
+                        <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                        vui lòng nhập tên thương hiêu</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Mã thương hiệu</label>
+                <input type="text" id="codeBrand" name="codeBrand" formControlName="codeBrand"
+                  [(ngModel)]="brand.codeBrand" class="form-control" />
+                <small id="nameBrandHelp" class="form-text text-muted err"
+                  *ngIf="!infoBrand.get('codeBrand')?.valid && infoBrand.get('codeBrand')?.touched ">
+                  <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                  vui lòng nhập mã thương hiêu</small>
+                <i class="fa fa-check-circle" style="color:green;" *ngIf="f.codeBrand.valid"></i>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Mô tả</label>
+                <textarea style="height: 200px;" type="text" name="description" id="description"
+                  formControlName="description" [(ngModel)]="brand.description" class="form-control"></textarea>
+                <small id="nameBrandHelp" class="form-text text-muted err"
+                  *ngIf="!infoBrand.get('description')?.valid && infoBrand.get('description')?.touched ">
+                  <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                  vui lòng nhập mô tả thương hiêu</small>
+                <i class="fa fa-check-circle" style="color:green;" *ngIf="f.description.valid"></i>
+              </div>
+            </div>
+            <div class="col-md-12"><label class="bmd-label-floating">Hình Ảnh</label></div>
+            <div class="col-md-12">
+              <input type="file" multiple (change)="detectFiles($event)">
+              <button (click)="uploadFile()" class="btn btn-primary">UPLOAD</button>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text" name="imgs" id="imgs" formControlName="imgs" [(ngModel)]="brand.imgs"
+                  class="form-control" />
+                <small id="nameBrandHelp" class="form-text text-muted err"
+                  *ngIf="!infoBrand.get('imgs')?.valid && infoBrand.get('imgs')?.touched ">
+                  <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                  vui lòng chọn ảnh</small>
+                <i class="fa fa-check-circle" style="color:green;" *ngIf="f.imgs.valid"></i>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group" *ngIf="brand.imgs">
+                <img style="height: 300px; width: 450px; " [src]="brand.imgs" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label class="bmd-label-floating">Trạng thái</label>
+              <select name="state" id="state" formControlName="state" [(ngModel)]="brand.state"
+                class="custom-select mb-3 form-control">
+                <option value="Đang kinh doanh">Đang kinh doanh</option>
+                <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
+              </select>
+              <small id="nameBrandHelp" class="form-text text-muted err"
+                *ngIf="!infoBrand.get('state')?.valid && infoBrand.get('state')?.touched ">
+                <i class="fa fa-times-circle" style="color:firebrick;"></i>
+                vui lòng chọn trạng thái</small>
+              <i class="fa fa-check-circle" style="color:green;" *ngIf="f.state.valid"></i>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" *ngIf="infoBrand.valid">
+          <button type="submit" class="btn  btn-primary pull-right" (click)="save()">Thêm</button>
+          <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+        </div>
+      </form>
+    </ng-template>
+    <button class="btn  btn-lg btn-outline-primary" (click)="open(content)">THÊM THƯƠNG HIỆU</button>
+  </form>
+</div>
