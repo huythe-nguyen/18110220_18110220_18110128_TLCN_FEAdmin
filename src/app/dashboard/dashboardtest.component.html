@@ -67,24 +67,24 @@
                 </div>
               </div>
 
-              <div class="row my-5">
+              <div class="row my-5" *ngIf="oder1.length!=0">
                 <h1 class="fs-4 mb-3" >Recent Orders</h1>
                 <div class="col">
                   <table class="table bg-white rounded shadow-sm  table-hover">
                     <thead>
                       <tr>
-                        <th scope="col" style="font-size: 2.5rem;" width="50">#</th>
-                        <th scope="col" style="font-size: 2.5rem;">Customer</th>
-                        <th scope="col" style="font-size: 2.5rem;">Time order</th>
-                        <th scope="col" style="font-size: 2.5rem;">Price</th>
+                        <th scope="col" style="font-size: 1.5rem;" width="50">#</th>
+                        <th scope="col" style="font-size: 1.5rem;">Customer</th>
+                        <th scope="col" style="font-size: 1.5rem;">Time order</th>
+                        <th scope="col" style="font-size: 1.5rem;">Price</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let item of oder1, let i = index ">
-                        <td>{{i+1}}</td>
-                        <td>{{item.displayName}}</td>
-                        <td>{{item.timeOrder|date}}</td>
-                        <td>{{item.total}}</td>
+                        <td style="font-size: 1.2rem;">{{i+1}}</td>
+                        <td style="font-size: 1.2rem;">{{item.displayName}}</td>
+                        <td style="font-size: 1.2rem;">{{item.timeOrder|date}}</td>
+                        <td style="font-size: 1.2rem;">{{item.total|number: '2.' }}VNĐ</td>
                         </tr>
                     </tbody>
                   </table>

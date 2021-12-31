@@ -40,7 +40,6 @@ export class EditDiscountComponent implements OnInit {
     "name": ["", [Validators.required, Validators.minLength(2)]],
     "code": ["", [Validators.required, Validators.minLength(2),]],
     "description": ["", [Validators.required, Validators.min(3), Validators.max(50)]],
-    "brand": ["", [Validators.required]],
     "amount": ["", [Validators.required]],
     "discount": ["", [Validators.required]],
     "starDay": ["", [Validators.required]],

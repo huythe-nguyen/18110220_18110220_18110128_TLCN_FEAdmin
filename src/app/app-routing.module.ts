@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { CancelComponent } from './cancels/cancel.component';
 import { SuceessComponent } from './order-suceess/suceess.component';
+import { BlogComponent } from './Blog/blog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'delivery', component: DeliveryComponent },
   { path: 'sale', component: SalesComponent },
   { path: 'brands', component: BrandsComponent },
+  { path: 'blog', component: BlogComponent },
   { path: 'discount', component: DiscountComponent },
   { path: 'product', component: ProductComponent },
   { path: 'news', component: NewsComponent },

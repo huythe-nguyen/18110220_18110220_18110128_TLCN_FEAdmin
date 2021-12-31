@@ -81,8 +81,8 @@
                               <td>{{ item.colour }}</td>
                               <td>{{ item.amount }}</td>
                               <td>{{ item.size }}</td>
-                              <td>{{ item.price |currency: 'USD':'symbol':'1.1' }}</td>
-                              <td>{{ item.priceSale |currency }} VNĐ</td>
+                              <td>{{ item.price |number: '2.' }}VNĐ</td>
+                              <td>{{ item.priceSale |number: '2.' }}VNĐ</td>
                               <td>
                                 <app-edit-product [id]="item.id" (updateFinished)="finishAndAlert($event)">
 

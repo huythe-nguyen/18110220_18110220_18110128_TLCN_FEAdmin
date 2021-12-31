@@ -3,9 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { RestApiService } from 'src/app/services/rest-api.service';
 import { DataService } from 'src/app/services/data.service';
-import { News } from '../models/news';
-import { Brand } from '../models/brand';
-
+import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'app-discount',
   templateUrl: './discount.component.html',
@@ -20,14 +18,13 @@ export class DiscountComponent implements OnInit {
   discount!: Discounts[];
   btnDisabled= false;
   url='http://localhost:3000/api/v1/discount'
-
+  url1='http://localhost:3000/api/v1/discount/count'
   deleteId!:string;
   confirmMessage='';
   key='';
-  size=5;
-  sizes=5;
+  size=10;
+  lenght:number
   page=1;
-  pages=1;
   confirmDeleteNew(confirmDialog: TemplateRef<any>, id: string, name: string){
     this.confirmMessage = `Bạn thật sự muốn xóa bai viet ${name}` ;
     this.deleteId =id;
@@ -44,21 +41,13 @@ export class DiscountComponent implements OnInit {
       this.ngOnInit();
   }
 }
-Loadpage(pages:number){
-  console.log(pages)
-    if(pages>0){
-      this.page = pages;
-      this.pages=pages
-      this.ngOnInit()
-    }
-}
-Loadsize(sizes:number){
-  console.log(sizes)
-  if(sizes>4){
-    this.size=sizes;
-    this.sizes=sizes;
-    this.ngOnInit();
+LoadPagesize(event: PageEvent) {
+  if (event.pageSize != 0 || event.pageIndex >=0) {
+    this.size = event.pageSize
+    this.page = event.pageIndex + 1
+    console.log(this.page)
   }
+  this.ngOnInit()
 }
   constructor(private rest:RestApiService,
     private data: DataService,
@@ -84,6 +73,15 @@ Loadsize(sizes:number){
         this.data.error(error['message']);
       })
     }
+    this.rest.get(this.url1).then(data => {
+      let value = data as { counts: number}
+      this.lenght= value.counts
+      console.log(value.counts)
+      this.btnDisabled = false;
+    })
+      .catch(error => {
+        this.data.error(error['message']);
+      })
   }
   Search(){
     if(this.key==''){

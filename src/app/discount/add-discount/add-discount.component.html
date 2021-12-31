@@ -64,7 +64,7 @@
           </div>
           </div>
           <div class="row">
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="form-group">
               <label class="bmd-label-floating">Thương hiệu</label>
               <select name="brand" id="brand" formControlName="brand" [(ngModel)]="discount.brand"
@@ -77,8 +77,8 @@
                 vui lòng chọn thương hiệu</small>
               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.brand.valid"></i>
             </div>
-          </div>
-          <div class="col-md-4">
+          </div> -->
+          <div class="col-md-6">
             <div class="form-group">
               <label class="bmd-label-floating">Số lượng</label>
               <input
@@ -93,18 +93,18 @@
               <i class="fa fa-check-circle" style="color:green;" *ngIf="infoNew.controls.description.valid"></i>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="form-group">
-              <label class="bmd-label-floating">Discount</label>
+              <label class="bmd-label-floating">Voucher</label>
                 <select
                 name="discount" id="discount"
                 [(ngModel)]="discount.discount"
                 formControlName="discount"
                 class="custom-select mb-3"
               >
-                <option value=5 selected>5%</option>
-                <option value=10>10%</option>
-                <option value=15>15%</option>
+                <option value=100000 selected>100,000 VNĐ</option>
+                <option value=200000>200,000 VNĐ</option>
+                <option value=300000>300,000 VNĐ</option>
               </select>
                 <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('discount')?.valid && infoNew.get('discount')?.touched " >
                   <i class="fa fa-times-circle" style="color:firebrick;"></i>
@@ -169,10 +169,10 @@
       </div>
       <app-message></app-message>
       <div class="modal-footer" *ngIf="infoNew.valid">
-        <button type="submit" class="btn btn-primary pull-right" (click)="save()">Thêm</button>
+        <button type="submit" class="btn btn-primary pull-right" (click)="save()">Add</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
       </div>
     </ng-template>
-    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">THÊM KHUYẾN MÃI</button>
+    <button class="btn btn-sn btn-outline-primary" (click)="open(content)">THÊM KHUYẾN MÃI</button>
   </form>
 </div>

@@ -1,0 +1,61 @@
+<div id="newsEdit">
+  <form #productAddForm="ngForm">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông Tin Review</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-message></app-message>
+        <div *ngIf="doing" class="m-auto">
+          <h1 class="text-center display-3 mt-5">
+            <i class="fas fa-spinner fa spin"></i>
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Mã sản phẩm</label>
+              <input type="text" name="product" id="product" value="{{review.product}}" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Rating :{{review.rating}}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="bmd-label-floating">Ngày đánh giá: {{review.timeOrder |date}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Đánh giá</label>
+              <input type="text" name="address" id="address" value="{{review.review}}" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Trả lời:</label>
+              <textarea style="height: 200px;" type="text" name="country" id="country" [(ngModel)]="review.adminReview"
+                class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary pull-right" (click)="update()">Edit</button>
+  <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+</div>
+</ng-template>
+<button rel="tooltip" title="Edit Task" class="btn btn-sm btn-outline-primary " (click)="open(content)">
+  <i class="fas fa-edit"></i></button>
+</form>
+</div>

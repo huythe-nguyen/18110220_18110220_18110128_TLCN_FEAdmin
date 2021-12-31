@@ -94,24 +94,13 @@
                               </tr>
                             </tbody>
                           </table>
+                          <span *ngIf="lenght==0" style="margin-left: 50%;">Không có dữ liệu</span>
                         </div>
-                        <!-- <nav aria-label="Page navigation example">
-                          <ul class="pagination">
-                            <li class="page-item" (click)="Loadpage(pages-1)"><a class="page-link">Previous</a></li>
-                            <input class="page-link" style="width: 50px;" type="number" name="pages" [(ngModel)]="pages"
-                            (ngModelChange)="Loadpage(pages)" />
-                            <li class="page-item" (click)="Loadpage(pages+1)"><a class="page-link">Next</a></li>
-                            <label class="page-link">Size</label>
-                            <select class="page-link" [(ngModel)]="sizes" (click)="Loadsize(sizes)">
-                              <option value=5>5</option>
-                              <option value=10>10</option>
-                              <option value=15>15</option>
-                            </select>
-                          </ul>
-                        </nav> -->
-                        <mat-paginator [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
-                        aria-label="Select page">
-                      </mat-paginator>
+                        <form>
+                          <mat-paginator *ngIf="lenght!=0" [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
+                          aria-label="Select page">
+                        </mat-paginator>
+                        </form>
                       </div>
                   </div>
                 </div>

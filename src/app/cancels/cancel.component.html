@@ -15,8 +15,7 @@
               <div class="col-md-12">
                 <div class="card card-plain">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title mt-0">Đơn Hàng đã hủy</h4>
-                    <p class="card-category">Here is a subtitle for this table</p>
+                    <h3 class="card-title mt-0">Đơn Hàng đã hủy</h3>
                   </div>
                   <div class="container mt-3">
                     <form action="/action_page.php">
@@ -75,13 +74,13 @@
                             </tr>
                           </tbody>
                         </table>
+                        <span *ngIf="lenght==0" style="margin-left: 50%;">Không có dữ liệu</span>
                       </div>
                       <form>
-                        <mat-paginator [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
+                        <mat-paginator *ngIf="lenght!=0" [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
                         aria-label="Select page">
                       </mat-paginator>
                       </form>
-
                     </div>
                   </div>
                   </div>

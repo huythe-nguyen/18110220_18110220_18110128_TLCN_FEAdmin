@@ -91,6 +91,12 @@ put(link: string,id: string, body: any){
     return this.http.put(link +'/'+id ,body, {headers: headers}).toPromise();
   return this.http.put(link +'/'+id ,body).toPromise();
 }
+post1(link: string,id: string, body: any){
+  let headers= this.getHeaders();
+  if(headers instanceof HttpHeaders)
+    return this.http.post(link +'/'+id ,body, {headers: headers}).toPromise();
+  return this.http.post(link +'/'+id ,body).toPromise();
+}
 delete(link: string , id: string){
   let headers= this.getHeaders();
   if(headers instanceof HttpHeaders)

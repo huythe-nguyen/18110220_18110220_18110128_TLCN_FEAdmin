@@ -66,6 +66,8 @@ import { EditDiscountComponent } from './discount/edit-discount/edit-discount.co
 import { MyCkEditorComponent } from './my-ck-editor/my-ck-editor.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BlogComponent } from './Blog/blog.component';
+import { EditBlogComponent } from './Blog/edit-oder/edit-blog.component';
 
 
 @NgModule({
@@ -101,8 +103,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     DiscountComponent,
     AddDiscountComponent,
     EditDiscountComponent,
-    MyCkEditorComponent
-
+    MyCkEditorComponent,
+    BlogComponent,
+    EditBlogComponent
 
   ],
 
