@@ -29,13 +29,13 @@ export class EditBrandsComponent implements OnInit {
      }
 
      infoBrand = this.fb.group({
-      "nameBrand":["", 
+      "nameBrand":["",
       Validators.compose([
         Validators.required,
         Validators.minLength(2),
       ])],
     "codeBrand":["",[Validators.required,Validators.minLength(2),]],
-      "description":["",[Validators.required,Validators.minLength(20)]],
+      "description":["",[Validators.required,Validators.minLength(2)]],
       "imgs":["",[Validators.required]],
       "state":["",[Validators.required]],
      })
@@ -52,7 +52,7 @@ export class EditBrandsComponent implements OnInit {
         this.brand =(data as {brand: Brand}).brand;
       }).catch(error =>{
         this.doing =false;
-        this.data.error(error['lỗi'])
+        this.data.error(error['message'])
       });
   }
   open(content: TemplateRef<any>){
@@ -64,7 +64,7 @@ export class EditBrandsComponent implements OnInit {
     this.rest.put(this.url1,this.editId,this.brand)
       .then(data =>{
         this.doing=false;
-        this.updateFinished.emit('brand is update')
+        this.updateFinished.emit('Cập nhật thành công'+ this.brand.nameBrand)
         this.modelService.dismissAll();
         this.brand = new Brand();
       }).catch(error =>{

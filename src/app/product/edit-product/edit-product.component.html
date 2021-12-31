@@ -1,6 +1,7 @@
 <div id="productEdit">
-  <form #productAddForm="ngForm" [formGroup]="infoproduct">
+
     <ng-template #content let-c="close" let-d="dismiss">
+      <form #productAddForm="ngForm" [formGroup]="infoproduct">
       <div class="modal-header">
         <h4 class="modal-title">Edit Project</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -288,9 +289,9 @@
         <button type="button" class="btn btn-primary pull-right" (click)="update()">Update</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
       </div>
+    </form>
     </ng-template>
     <button  rel="tooltip" title="Edit Task"
     class="btn btn-sm btn-outline-primary " (click)="open(content)">
     <i class="fas fa-edit"></i></button>
-  </form>
 </div>

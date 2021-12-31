@@ -1,5 +1,5 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, TemplateRef } from '@angular/core';
 import { RestApiService } from 'src/app/services/rest-api.service';
 import { DataService } from 'src/app/services/data.service';
 import { Brand } from 'src/app/models/brand';
@@ -38,7 +38,8 @@ export class AddProductComponent implements OnInit {
   brands!: Brand[];
   btnDisabled= false;
   url2='http://localhost:3000/api/v1/admin/brand/list'
-
+  @Output()
+  savingFinshed: EventEmitter<string>= new EventEmitter<string>();
   constructor(private modelService: NgbModal,
     private rest:RestApiService,
     private data: DataService,
@@ -91,13 +92,13 @@ ngOnInit() {
     this.rest.post(this.url1,this.product)
       .then(data =>{
         this.saving=false;
-        this.data.success('Product is saved');
+        this.savingFinshed.emit('Đã thêm sản phẩm ' + this.product.productName)
         this.modelService.dismissAll();
-        window.alert('Sản phẩm đã được thêm')
         this.ngOnInit();
       }).catch(error =>{
         this.saving =false;
-        this.messerr='Mã sản phẩm đã tồn tại'
+        this.data.error('Mã thương hiệu đã tồn tại')
+        this.messerr= this.data.message
       });
       this.mostrarImagenes();
   }

@@ -11,15 +11,15 @@
         <div class="content">
           <div class="container-fluid">
             <!---->
-            <div class="alert alert-success">
+            <!-- <div class="alert alert-success">
               <span>THƯƠNG HIỆU ĐÃ ĐĂNG</span>
-            </div>
+            </div> -->
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">THƯƠNG HIỆU</span>
+                      <h3 class="nav-tabs-title">Thương hiệu</h3>
                     </div>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                               (ngModelChange)="Search()"
                               name="key"
                               class="form-control"
-                              placeholder="Nhập mã sản phẩm"
+                              placeholder="Nhập..."
                             />
                             <button
                               type="submit"
@@ -52,15 +52,19 @@
                             </button>
 
                           </div>
-                          <div>
-                            <app-add-brands></app-add-brands>
-                          </div>
+
                         </div>
                       </div>
                     </form>
 
                       <div class="card-body" >
                         <div class="table-responsive">
+                          <div>
+                            <app-add-brands (savingFinshed)="finishAndAlert($event)"></app-add-brands>
+                          </div>
+                          <div class="alert alert-success" *ngIf="mess!=''">
+                            <span>{{mess}}</span>
+                          </div>
                           <table class="table">
                             <thead class="text-primary">
                               <th>No</th>
@@ -91,7 +95,7 @@
                             </tbody>
                           </table>
                         </div>
-                        <nav aria-label="Page navigation example">
+                        <!-- <nav aria-label="Page navigation example">
                           <ul class="pagination">
                             <li class="page-item" (click)="Loadpage(pages-1)"><a class="page-link">Previous</a></li>
                             <input class="page-link" style="width: 50px;" type="number" name="pages" [(ngModel)]="pages"
@@ -104,7 +108,10 @@
                               <option value=15>15</option>
                             </select>
                           </ul>
-                        </nav>
+                        </nav> -->
+                        <mat-paginator [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+                        aria-label="Select page">
+                      </mat-paginator>
                       </div>
                   </div>
                 </div>
@@ -114,7 +121,7 @@
         </div>
         <ng-template #content let-c="close" let-d="dismiss">
           <div class="modal-header">
-            <h4 class="modal-title">Xóa thuong hieu</h4>
+            <h4 class="modal-title">Xóa thương hiệu</h4>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>

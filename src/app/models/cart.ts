@@ -16,10 +16,15 @@ export class Carts{
   products:[CartItem] ;
   total: number;
   email:string;
+  phone:string;
+  address!:string;
+  country:string;
+  city:string;
   displayName:string;
   timeOrder:Date;
   timeSucess:Date;
   codeOder:string;
   state:string;
   note:string;
+  stateOrder:string;
 }

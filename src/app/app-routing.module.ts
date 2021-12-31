@@ -1,3 +1,4 @@
+import { DiscountComponent } from './discount/discount.component';
 import { NgModule, ViewChildren } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrandsComponent } from './brands/brands.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'delivery', component: DeliveryComponent },
   { path: 'sale', component: SalesComponent },
   { path: 'brands', component: BrandsComponent },
+  { path: 'discount', component: DiscountComponent },
   { path: 'product', component: ProductComponent },
   { path: 'news', component: NewsComponent },
   { path: 'cancel', component: CancelComponent },

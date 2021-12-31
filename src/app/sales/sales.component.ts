@@ -3,7 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Carts } from '../models/cart';
 import { DataService } from '../services/data.service';
 import { RestApiService } from '../services/rest-api.service';
-
+import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -17,15 +17,15 @@ export class SalesComponent implements OnInit {
   }
   cart!: Carts[];
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/cart'
-  url1 = 'http://localhost:3000/api/v1/admin/cart/search'
+  url = 'http://localhost:3000/api/v1/admin/cart/confimed'
+  url1 = 'http://localhost:3000/api/v1/admin/cart'
+  url2 = 'http://localhost:3000/api/v1/admin/cart/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';
-  size = 5;
-  sizes = 5;
-  page = 1;
-  pages = 1;
+  size=10;
+  lenght:number
+  page=1;
   constructor(private rest: RestApiService,
     private data: DataService,
     private modalService: NgbModal) {
@@ -37,21 +37,13 @@ export class SalesComponent implements OnInit {
       this.ngOnInit();
     }
   }
-  Loadpage(pages: number) {
-    console.log(pages)
-    if (pages > 0) {
-      this.page = pages;
-      this.pages = pages
-      this.ngOnInit()
+  LoadPagesize(event: PageEvent) {
+    if (event.pageSize != 0 || event.pageIndex >=0) {
+      this.size = event.pageSize
+      this.page = event.pageIndex + 1
+      console.log(this.page)
     }
-  }
-  Loadsize(sizes:number){
-    console.log(sizes)
-    if(sizes>4){
-      this.size=sizes;
-      this.sizes=sizes;
-      this.ngOnInit();
-    }
+    this.ngOnInit()
   }
   ngOnInit() {
     this.btnDisabled = true;
@@ -64,7 +56,7 @@ export class SalesComponent implements OnInit {
           this.data.error(error['message']);
         })
     } else {
-      this.rest.search(this.url, this.key).then(data => {
+      this.rest.search(this.url1, this.key,this.size).then(data => {
         this.cart = (data as { cart: Carts[] }).cart;
         this.btnDisabled = false;
       })
@@ -72,6 +64,15 @@ export class SalesComponent implements OnInit {
           this.data.error(error['message']);
         })
     }
+    this.rest.get(this.url2).then(data => {
+      let value = data as { counts: number}
+      this.lenght= value.counts
+      console.log(value.counts)
+      this.btnDisabled = false;
+    })
+      .catch(error => {
+        this.data.error(error['message']);
+      })
   }
 
 }

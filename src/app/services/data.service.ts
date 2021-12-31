@@ -2,6 +2,7 @@ import { RestApiService } from './rest-api.service';
 import { Employee } from './../models/employee';
 import { Injectable } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root',
 })

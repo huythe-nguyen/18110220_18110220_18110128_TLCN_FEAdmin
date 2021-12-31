@@ -1,5 +1,5 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { Brand } from 'src/app/models/brand';
 import { RestApiService } from 'src/app/services/rest-api.service';
 import { DataService } from 'src/app/services/data.service';
@@ -23,7 +23,11 @@ export class AddBrandsComponent implements OnInit {
   tests: Observable<any[]>;
   saving=false;
   brand: Brand;
+  err=''
   url1='http://localhost:3000/api/v1/admin/brand/add'
+  @Output()
+  savingFinshed: EventEmitter<string>= new EventEmitter<string>();
+
   constructor(private modelService: NgbModal,
     private rest:RestApiService,
     private data: DataService,
@@ -43,7 +47,7 @@ export class AddBrandsComponent implements OnInit {
         Validators.minLength(2),
       ])],
     "codeBrand":["",[Validators.required,Validators.minLength(2),]],
-      "description":["",[Validators.required,Validators.minLength(20)]],
+      "description":["",[Validators.required,Validators.minLength(2)]],
       "imgs":["",[Validators.required]],
       "state":["",[Validators.required]],
      })
@@ -51,20 +55,24 @@ export class AddBrandsComponent implements OnInit {
        return this.infoBrand.controls
      }
   ngOnInit() {
+
   }
   open(content: TemplateRef<any>){
+    this.err=''
     this.modelService.open(content, {ariaDescribedBy: 'modal-basic-title'});
   }
   save(){
     this.saving=true;
-
     this.rest.post(this.url1,this.brand)
       .then(data =>{
         this.saving=false;
-        this.data.success('Thành Công');
+        this.savingFinshed.emit('Đã thêm thương hiệu: ' + this.brand.nameBrand)
+        this.brand = new Brand
+        this.modelService.dismissAll();
       }).catch(error =>{
         this.saving =false;
-        this.data.error(('Thất bại'))
+        this.data.error('Mã thương hiệu đã tồn tại')
+        this.err= this.data.message
       });
 
   }

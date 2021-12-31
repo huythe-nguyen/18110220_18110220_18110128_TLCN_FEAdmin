@@ -14,8 +14,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Đơn hàng chờ xác nhận</h4>
-                <p class="card-category">Here is a subtitle for this table</p>
+                <h3 class="card-title">Đơn hàng chờ xác nhận</h3>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -44,20 +43,11 @@
                     </tbody>
                   </table>
                 </div>
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item" (click)="Loadpage(pages-1)"><a class="page-link">Previous</a></li>
-                    <input class="page-link" style="width: 50px;" type="number" name="pages" [(ngModel)]="pages"
-                      (ngModelChange)="Loadpage(pages)" />
-                    <li class="page-item" (click)="Loadpage(pages+1)"><a class="page-link">Next</a></li>
-                    <label class="page-link">Size</label>
-                    <select class="page-link" [(ngModel)]="sizes" (click)="Loadsize(sizes)">
-                      <option value=5>5</option>
-                      <option value=10>10</option>
-                      <option value=15>15</option>
-                    </select>
-                  </ul>
-                </nav>
+                <form>
+                  <mat-paginator [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
+                  aria-label="Select page">
+                </mat-paginator>
+                </form>
               </div>
             </div>
           </div>

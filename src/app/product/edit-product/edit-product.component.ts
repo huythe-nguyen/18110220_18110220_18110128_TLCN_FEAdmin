@@ -12,6 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
+  
   doing=false;
   product: Product;
   url1='http://localhost:3000/api/v1/admin/product/edit'
@@ -78,14 +79,13 @@ export class EditProductComponent implements OnInit {
     this.rest.put(this.url1,this.editId,this.product)
       .then(data =>{
         this.doing=false;
-        this.updateFinished.emit('product is update')
+        this.updateFinished.emit('Cập nhật sản phẩm '+this.product.productName+' thành công')
         this.modelService.dismissAll();
-        window.alert('Cập nhật thành công')
         this.product = new Product();
         this.ngOnInit();
       }).catch(error =>{
         this.doing =false;
-        this.data.error(error['lỗi'])
+        this.data.error('cập nhật thất bại')
       });
 
   }

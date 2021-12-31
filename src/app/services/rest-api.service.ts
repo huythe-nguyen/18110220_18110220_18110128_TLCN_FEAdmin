@@ -38,6 +38,12 @@ getDashboard(link:string, page:number,size: number,day: number, status: string){
     return this.http.get(link+'/'+status +'?page='+ page+'&&size='+size+'&&day='+day, {headers: headers}).toPromise();
  return this.router.navigate(['/login'])
 }
+getdelivery(link:string, page:number,size: number,daystart: Date,dayend: Date, status: string){
+  let headers = this.getHeaders();
+  if(headers instanceof HttpHeaders)
+    return this.http.get(link+'/'+status +'?page='+ page+'&&size='+size+'&&daystart='+daystart+'&&dayend='+dayend, {headers: headers}).toPromise();
+ return this.router.navigate(['/login'])
+}
 getCountDashboard(link:string,day: number, status: string){
   let headers = this.getHeaders();
   if(headers instanceof HttpHeaders)
@@ -50,10 +56,10 @@ searchOder(link: string,key:string,status: string){
     return this.http.get(link +'/'+status+key, {headers: headers}).toPromise();
   return this.http.get(link +'/'+key ).toPromise();
 }
-search(link: string,key:string){
+search(link: string,key:string,size: number){
   let headers= this.getHeaders();
   if(headers instanceof HttpHeaders)
-    return this.http.get(link +'/'+key, {headers: headers}).toPromise();
+    return this.http.get(link +'/'+key+'?size='+size, {headers: headers}).toPromise();
   return this.http.get(link +'/'+key ).toPromise();
 }
 searchOrder(link: string,key:string){

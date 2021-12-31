@@ -1,7 +1,8 @@
 
 <div id="newsEdit">
-  <form #productAddForm="ngForm" [formGroup]="infoNew">
+
     <ng-template #content let-c="close" let-d="dismiss">
+      <form #productAddForm="ngForm" [formGroup]="infoNew">
       <div class="modal-header">
         <h4 class="modal-title">Chỉnh sửa bài viết</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -141,14 +142,17 @@
 
       </div>
       </div>
-      <app-message></app-message>
       <div class="modal-footer" *ngIf="infoNew.valid">
         <button type="submit" class="btn btn-primary pull-right" (click)="update()">Edit</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
       </div>
+    </form>
+    <app-my-ck-editor [(ngModel)]="news.htmlData" ></app-my-ck-editor>
+    <h4 style="margin-top: 50px;">Output</h4>
+    <ckeditor [editor]="Editor" [data]="editorData"></ckeditor>
+
     </ng-template>
     <button  rel="tooltip" title="Edit Task"
     class="btn btn-sm btn-outline-primary " (click)="open(content)">
     <i class="fas fa-edit"></i></button>
-  </form>
 </div>

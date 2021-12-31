@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="bmd-label-floating">Tên thương hiệu</label>
+                <label class="bmd-label-floating">Tên thương hiệu *</label>
                 <input type="text" id="nameBrand" formControlName="nameBrand" [(ngModel)]="brand.nameBrand"
                   class="form-control" name="nameBrand" /> <i class="fa fa-check-circle" style="color:green;"
                   *ngIf="f.nameBrand.valid"></i>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label class="bmd-label-floating">Mã thương hiệu</label>
+                <label class="bmd-label-floating">Mã thương hiệu*</label>
                 <input type="text" id="codeBrand" name="codeBrand" formControlName="codeBrand"
                   [(ngModel)]="brand.codeBrand" class="form-control" />
                 <small id="nameBrandHelp" class="form-text text-muted err"
@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label class="bmd-label-floating">Mô tả</label>
+                <label class="bmd-label-floating">Mô tả*</label>
                 <textarea style="height: 200px;" type="text" name="description" id="description"
                   formControlName="description" [(ngModel)]="brand.description" class="form-control"></textarea>
                 <small id="nameBrandHelp" class="form-text text-muted err"
@@ -57,7 +57,7 @@
                 <i class="fa fa-check-circle" style="color:green;" *ngIf="f.description.valid"></i>
               </div>
             </div>
-            <div class="col-md-12"><label class="bmd-label-floating">Hình Ảnh</label></div>
+            <div class="col-md-12"><label class="bmd-label-floating">Hình Ảnh*</label></div>
             <div class="col-md-12">
               <input type="file" multiple (change)="detectFiles($event)">
               <button (click)="uploadFile()" class="btn btn-primary">UPLOAD</button>
@@ -79,10 +79,10 @@
               </div>
             </div>
             <div class="col-md-12">
-              <label class="bmd-label-floating">Trạng thái</label>
+              <label class="bmd-label-floating">Trạng thái*</label>
               <select name="state" id="state" formControlName="state" [(ngModel)]="brand.state"
                 class="custom-select mb-3 form-control">
-                <option value="Đang kinh doanh">Đang kinh doanh</option>
+                <option value="Đang kinh doanh" selected>Đang kinh doanh</option>
                 <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
               </select>
               <small id="nameBrandHelp" class="form-text text-muted err"
@@ -93,12 +93,15 @@
             </div>
           </div>
         </div>
+        <div class="alert alert-danger" *ngIf="err!=''">
+          <span>{{err}}</span>
+        </div>
         <div class="modal-footer" *ngIf="infoBrand.valid">
-          <button type="submit" class="btn  btn-primary pull-right" (click)="save()">Thêm</button>
+          <button type="submit" class="btn  btn-primary pull-right" (click)="save()">Add</button>
           <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
         </div>
       </form>
     </ng-template>
-    <button class="btn  btn-lg btn-outline-primary" (click)="open(content)">THÊM THƯƠNG HIỆU</button>
+    <button class="btn  btn-lg btn-outline-primary float-right m-3" (click)="open(content)">THÊM THƯƠNG HIỆU</button>
   </form>
 </div>

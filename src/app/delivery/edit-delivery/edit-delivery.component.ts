@@ -24,7 +24,7 @@ export class EditDeliveryComponent implements OnInit {
 
   @Output()
   updateFinished: EventEmitter<string> = new EventEmitter<string>();
-  
+
   constructor(private modelService: NgbModal,
     private rest:RestApiService,
     private data: DataService,
@@ -50,6 +50,7 @@ export class EditDeliveryComponent implements OnInit {
   }
   update(){
     this.doing=true;
+    console.log(this.oder.note)
     this.rest.put(this.url1,this.editId,this.oder)
       .then(data =>{
           this.doing=false;

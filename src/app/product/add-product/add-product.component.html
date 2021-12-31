@@ -248,8 +248,9 @@
           </div>
         </div>
       </div>
-      <span style="color: red;">{{messerr}}</span>
-      <span style="color: rgb(0, 4, 255);">{{mess}}</span>
+      <div class="alert alert-danger" *ngIf="messerr!=''">
+        <span>{{messerr}}</span>
+      </div>
       <div class="modal-footer" *ngIf="infoproduct.valid">
         <button type="submit" class="btn btn-primary pull-right" (click)="uploadFile()" (click)="save()">Thêm</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>

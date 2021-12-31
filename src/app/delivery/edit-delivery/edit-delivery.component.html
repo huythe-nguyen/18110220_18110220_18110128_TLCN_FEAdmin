@@ -87,7 +87,6 @@
                 <label class="bmd-label-floating">Ngày dự kiến nhận hàng</label>
                 <input
                   type="date" name="timeSucess" id="timeSucess"
-                  [(ngModel)]="oder.timeSucess"
                   value="{{oder.timeSucess|date: 'yyyy-MM-dd'}}"
                   formControlName="timeSucess"
                   class="form-control"
@@ -131,7 +130,7 @@
           <div class="col-md-9">
             <select
               name="status" id="status"
-              [(ngModel)]="oder.state"
+              value="{{oder.state}}"
 
               class="custom-select mb-3"
             >
@@ -158,8 +157,8 @@
         <div class="row" *ngIf="oder.state=='cancel'">
           <div class="col-md-12">
             <label class="bmd-label-floating">Lí do Hủy đơn</label>
-            <textarea style="height: 300px;" type="text" name="description" id="description"
-              formControlName="description" class="form-control"></textarea>
+            <textarea style="height: 300px;" type="text" name="note" id="note"
+            [(ngModel)]="oder.note"  class="form-control"></textarea>
           </div>
         </div>
 

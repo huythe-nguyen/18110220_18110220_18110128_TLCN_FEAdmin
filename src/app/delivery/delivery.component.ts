@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Carts } from '../models/cart';
 import { DataService } from '../services/data.service';
 import { RestApiService } from '../services/rest-api.service';
-
+import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'app-delivery',
   templateUrl: './delivery.component.html',
@@ -19,17 +19,18 @@ export class DeliveryComponent implements OnInit {
 
 
   oder3!: Carts[];
-
+  count2:number
   btnDisabled = false;
   url = 'http://localhost:3000/api/v1/admin/oder'
   url1='http://localhost:3000/api/v1/admin/oder?state=confimed'
+  url2 = 'http://localhost:3000/api/v1/admin/oder/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';
   size = 5;
   sizes = 5;
   page = 1;
-  pages = 1;
+  day=365;
 
   constructor(private rest: RestApiService,
     private data: DataService,
@@ -42,21 +43,13 @@ export class DeliveryComponent implements OnInit {
       this.ngOnInit();
     }
   }
-  Loadpage(pages: number) {
-    console.log(pages)
-    if (pages > 0) {
-      this.page = pages;
-      this.pages = pages
-      this.ngOnInit()
+  LoadPagesize(event: PageEvent) {
+    if (event.pageSize != 0 || event.pageIndex >=0) {
+      this.size = event.pageSize
+      this.page = event.pageIndex + 1
+      console.log(this.page)
     }
-  }
-  Loadsize(sizes:number){
-    console.log(sizes)
-    if(sizes>4){
-      this.size=sizes;
-      this.sizes=sizes;
-      this.ngOnInit();
-    }
+    this.ngOnInit()
   }
   ngOnInit() {
     this.btnDisabled = true;
@@ -75,6 +68,14 @@ export class DeliveryComponent implements OnInit {
           this.data.error(error['message']);
         })
     }
+    this.rest.getCountDashboard(this.url2,this.day,'confimed').then(data => {
+      let value = data as { count:number}
+      this.count2= value.count;
+      this.btnDisabled = false;
+      console.log(this.count2);
+      console.log(value);
+    })
   }
+
 
 }

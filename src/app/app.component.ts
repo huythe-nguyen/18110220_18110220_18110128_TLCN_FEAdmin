@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { News } from './models/news';
 
 
 @Component({
@@ -9,9 +10,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'admin-panel-layout';
   sideBarOpen = true;
-
+  news:News
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
-  
+ 
+
 }

@@ -11,15 +11,15 @@
         <div class="content">
           <div class="container-fluid">
             <!---->
-            <div class="alert alert-success">
+            <!-- <div class="alert alert-success">
               <span>SẢN PHẨM ĐÃ ĐĂNG</span>
-            </div>
+            </div> -->
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">Tìm kiếm sản phẩm</span>
+                      <h4 class="nav-tabs-title">Thông tin sản phẩm</h4>
                     </div>
                   </div>
                 </div>
@@ -38,7 +38,7 @@
                             (ngModelChange)="Search()"
                             placeholder="search"> -->
                             <input type="text" [(ngModel)]="key" name="key" class="form-control"
-                              placeholder="Nhập mã sản phẩm" />
+                              placeholder="Nhập ..." />
                             <button type="submit" class="btn btn-white btn-round btn-just-icon" (click)="search(key)">
                               <i class="material-icons">search</i>
                               <div class="ripple-container"></div>
@@ -46,7 +46,7 @@
 
                           </div>
                           <div>
-                            <app-add-product></app-add-product>
+                            <app-add-product (savingFinshed)="finishAndAlert($event)"></app-add-product>
                           </div>
                         </div>
                       </div>
@@ -56,6 +56,13 @@
                     </div>
                     <div class="card-body">
                       <div class="table-responsive">
+                        <div style="margin-left: 90%;">
+                          <button rel="tooltip" title="Download" class="btn btn-success" (click)="exportExcel()">
+                          <i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="alert alert-success" *ngIf="mess!=''">
+                          <span>{{mess}}</span>
+                        </div>
                         <table class="table">
                           <thead class="text-primary">
                             <th>Mã Sản Phẩm</th>
@@ -90,7 +97,7 @@
                           </tbody>
                         </table>
                       </div>
-                        <nav aria-label="Page navigation example">
+                        <!-- <nav aria-label="Page navigation example">
                           <ul class="pagination">
                             <li class="page-item" (click)="Loadpage(pages-1)"><a class="page-link">Previous</a></li>
                             <input class="page-link" style="width: 50px;" type="number" name="pages" [(ngModel)]="pages"
@@ -98,12 +105,18 @@
                             <li class="page-item" (click)="Loadpage(pages+1)"><a class="page-link">Next</a></li>
                             <label class="page-link">Size</label>
                             <select class="page-link" [(ngModel)]="sizes" (click)="Loadsize(sizes)">
-                              <option value=5>5</option>
                               <option value=10>10</option>
-                              <option value=15>15</option>
+                              <option value=20>20</option>
+                              <option value=30>30</option>
+                              <option value=1000>All</option>
                             </select>
                           </ul>
-                        </nav>
+                        </nav> -->
+                        <form>
+                        <mat-paginator [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
+                        aria-label="Select page">
+                      </mat-paginator>
+                      </form>
                     </div>
                   </div>
 

@@ -3,7 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Carts } from '../models/cart';
 import { DataService } from '../services/data.service';
 import { RestApiService } from '../services/rest-api.service';
-
+import { PageEvent } from '@angular/material/paginator';
 @Component({
   templateUrl: 'dashboardtest.component.html',
   styleUrls: [ './dashboardtest.component.scss']
@@ -24,10 +24,8 @@ export class DashboardComponentTest implements OnInit {
   deleteId!: string;
   confirmMessage = '';
   key = '';
-  size = 5;
-  sizes = 5;
-  page = 1;
-  pages = 1;
+  size=10;
+  page=1;
   total=0;
   number=0;
   day=0;
@@ -43,21 +41,13 @@ export class DashboardComponentTest implements OnInit {
       this.ngOnInit();
     }
   }
-  Loadpage(pages: number) {
-    console.log(pages)
-    if (pages > 0) {
-      this.page = pages;
-      this.pages = pages
-      this.ngOnInit()
+  LoadPagesize(event: PageEvent) {
+    if (event.pageSize != 0 || event.pageIndex >=0) {
+      this.size = event.pageSize
+      this.page = event.pageIndex + 1
+      console.log(this.page)
     }
-  }
-  Loadsize(sizes:number){
-    console.log(sizes)
-    if(sizes>4){
-      this.size=sizes;
-      this.sizes=sizes;
-      this.ngOnInit();
-    }
+    this.ngOnInit()
   }
   Loadday(days: number) {
     console.log(days)

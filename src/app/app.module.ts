@@ -1,3 +1,4 @@
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
@@ -32,7 +33,7 @@ import { MessageComponent } from './message/message.component';
 import { LoginComponent } from './login/login.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -59,8 +60,12 @@ import { CancelComponent } from './cancels/cancel.component';
 import { DetailCancelComponent } from './cancels/detail-cancel/detail-oder.component';
 import { SuceessComponent } from './order-suceess/suceess.component';
 import { DetailSuceessComponent } from './order-suceess/detail-Suceess/detail-oder.component';
-
-
+import { DiscountComponent } from './discount/discount.component';
+import { AddDiscountComponent } from './discount/add-discount/add-discount.component';
+import { EditDiscountComponent } from './discount/edit-discount/edit-discount.component';
+import { MyCkEditorComponent } from './my-ck-editor/my-ck-editor.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -92,9 +97,15 @@ import { DetailSuceessComponent } from './order-suceess/detail-Suceess/detail-od
     CancelComponent,
     DetailCancelComponent,
     SuceessComponent,
-    DetailSuceessComponent
+    DetailSuceessComponent,
+    DiscountComponent,
+    AddDiscountComponent,
+    EditDiscountComponent,
+    MyCkEditorComponent
+
 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -120,7 +131,11 @@ import { DetailSuceessComponent } from './order-suceess/detail-Suceess/detail-od
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    CKEditorModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [RestApiService,DataService,FirebaseService

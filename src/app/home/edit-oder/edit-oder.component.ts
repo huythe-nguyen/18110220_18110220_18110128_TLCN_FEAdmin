@@ -40,6 +40,7 @@ export class EditOderComponent implements OnInit {
     // })
   ngOnInit() {
     this.doing=true;
+    
     this.rest.getOne(this.url1,this.editId)
       .then(data =>{
         this.doing=false;

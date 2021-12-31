@@ -12,6 +12,7 @@ export class MessageComponent implements OnInit {
   constructor(public data: DataService) { }
 
   ngOnInit() {
+    this.data.message
   }
 
 }

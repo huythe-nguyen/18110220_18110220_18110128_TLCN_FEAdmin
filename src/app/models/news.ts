@@ -7,4 +7,5 @@ export class News{
   starDay!: Date;
   endDay!: Date;
   state!: string;
+  htmlData!: string;
 }

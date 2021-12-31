@@ -101,7 +101,7 @@
             <div class="col-md-12">
               <label class="bmd-label-floating">Lí do Hủy đơn</label>
               <textarea style="height: 300px;" type="text" name="description" id="description"
-                formControlName="description" class="form-control"></textarea>
+              value="{{oder.note}}"formControlName="description" class="form-control"></textarea>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@
           <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
         </div>
     </ng-template>
-    <button rel="tooltip" title="Edit Task" class="btn btn-sm btn-outline-primary " (click)="open(content)">
-      <i class="fas fa-edit"></i></button>
+    <button rel="tooltip" title="View Task" class="btn btn-sm btn-outline-primary " (click)="open(content)">
+      <i class="fas fa-eye"></i></button>
   </form>
 </div>
