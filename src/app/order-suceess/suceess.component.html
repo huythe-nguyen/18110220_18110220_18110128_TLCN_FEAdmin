@@ -39,6 +39,11 @@
                     </form>
                     <div class="card-body">
                       <div class="table-responsive">
+                        <div *ngIf="btnDisabled" class="m-auto">
+                          <h1 class="text-center display-3 mt-5">
+                            <i class="fas fa-spinner fa spin"></i>
+                          </h1>
+                        </div>
                         <div class="row">
                           <div class="col-md-3">
                             <label class="bmd-label-floating">Từ</label>

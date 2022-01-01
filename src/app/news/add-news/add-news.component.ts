@@ -26,7 +26,7 @@ export class AddNewsComponent implements OnInit {
   saving=false;
   news: News;
   err=''
-  url1='http://localhost:3000/api/v1/admin/new/add'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/new/add'
   @Output()
   savingFinshed: EventEmitter<string>= new EventEmitter<string>();
   public Data: string = "hello"

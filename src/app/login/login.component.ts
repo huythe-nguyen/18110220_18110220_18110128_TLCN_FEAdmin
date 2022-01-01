@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   btnDisabled= false;
   mess:string
 
-  url='http://localhost:3000/api/v1/auth/login'
+  url='https://shopgiay-be-tlcn.herokuapp.com/api/v1/auth/login'
   constructor(private rest:RestApiService,
     private data: DataService,
     private router: Router) {

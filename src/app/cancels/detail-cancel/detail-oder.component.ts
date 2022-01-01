@@ -18,7 +18,7 @@ export class DetailCancelComponent implements OnInit {
 
   doing=false;
   oder: Carts;
-  url1='http://localhost:3000/api/v1/admin/oder/edit'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder/edit'
   @Input("id")
   editId!: string;
 
@@ -48,5 +48,5 @@ export class DetailCancelComponent implements OnInit {
   open(content: TemplateRef<any>){
     this.modelService.open(content, {ariaDescribedBy: 'modal-basic-title'});
   }
-  
+
 }

@@ -19,10 +19,10 @@ export class EditDiscountComponent implements OnInit {
 
   doing = false;
   discount: Discounts;
-  url1 = 'http://localhost:3000/api/v1/discount/edit'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/discount/edit'
   brands!: Brand[];
   btnDisabled = false;
-  url2 = 'http://localhost:3000/api/v1/admin/brand/list'
+  url2 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/list'
   @Input("id")
   editId!: string;
 

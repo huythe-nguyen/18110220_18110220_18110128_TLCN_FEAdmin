@@ -17,10 +17,10 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class AddDiscountComponent implements OnInit {
   saving=false;
   discount: Discounts;
-  url1='http://localhost:3000/api/v1/discount/add'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/discount/add'
   brands!: Brand[];
   btnDisabled= false;
-  url2='http://localhost:3000/api/v1/admin/brand/list'
+  url2='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/list'
   @Output()
   savingFinshed: EventEmitter<string>= new EventEmitter<string>();
   constructor(private modelService: NgbModal,

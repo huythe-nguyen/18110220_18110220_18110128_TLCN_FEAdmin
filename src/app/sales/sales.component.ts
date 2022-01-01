@@ -17,9 +17,9 @@ export class SalesComponent implements OnInit {
   }
   cart!: Carts[];
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/cart/confimed'
-  url1 = 'http://localhost:3000/api/v1/admin/cart'
-  url2 = 'http://localhost:3000/api/v1/admin/cart/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/cart/confimed'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/cart'
+  url2 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/cart/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';

@@ -25,9 +25,9 @@ export class CancelComponent implements OnInit {
   oder1!: Carts[];
   oder2!: Carts[];
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/oder/dashboard'
-  url1='http://localhost:3000/api/v1/admin/oder?state=cancel'
-  url3 = 'http://localhost:3000/api/v1/admin/oder/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder/dashboard'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder?state=cancel'
+  url3 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';

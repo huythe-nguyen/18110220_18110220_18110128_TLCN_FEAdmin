@@ -19,8 +19,8 @@ export class BlogComponent implements OnInit {
 
   review!: Reviews[];
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/product/review/state'
-  url1 = 'http://localhost:3000/api/v1/admin/product/review/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/review/state'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/review/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';

@@ -21,9 +21,9 @@ export class DeliveryComponent implements OnInit {
   oder3!: Carts[];
   count2:number
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/oder'
-  url1='http://localhost:3000/api/v1/admin/oder?state=confimed'
-  url2 = 'http://localhost:3000/api/v1/admin/oder/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder?state=confimed'
+  url2 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';

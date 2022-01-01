@@ -17,8 +17,8 @@ export class DiscountComponent implements OnInit {
   }
   discount!: Discounts[];
   btnDisabled= false;
-  url='http://localhost:3000/api/v1/discount'
-  url1='http://localhost:3000/api/v1/discount/count'
+  url='https://shopgiay-be-tlcn.herokuapp.com/api/v1/discount'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/discount/count'
   deleteId!:string;
   confirmMessage='';
   key='';
@@ -26,7 +26,7 @@ export class DiscountComponent implements OnInit {
   lenght:number
   page=1;
   confirmDeleteNew(confirmDialog: TemplateRef<any>, id: string, name: string){
-    this.confirmMessage = `Bạn thật sự muốn xóa bai viet ${name}` ;
+    this.confirmMessage = `Bạn thật sự muốn xóa khuyến mãi ${name}` ;
     this.deleteId =id;
     this.modalService.open(confirmDialog, {ariaDescribedBy: 'modal-basic-title'}).result.then((result)=>{
       this.deleteId='';

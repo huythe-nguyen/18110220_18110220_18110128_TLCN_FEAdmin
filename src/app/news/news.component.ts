@@ -22,8 +22,8 @@ export class NewsComponent implements OnInit {
   news!: News[];
   new: News
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/new'
-  url1 = 'http://localhost:3000/api/v1/admin/new/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/new'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/new/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';
@@ -33,7 +33,7 @@ export class NewsComponent implements OnInit {
   mess = ''
   // pages=1;
   confirmDeleteNew(confirmDialog: TemplateRef<any>, id: string, title: string) {
-    this.confirmMessage = `Bạn thật sự muốn xóa bai viet ${title}`;
+    this.confirmMessage = `Bạn thật sự muốn xóa bài viết ${title}`;
     this.deleteId = id;
     this.modalService.open(confirmDialog, { ariaDescribedBy: 'modal-basic-title' }).result.then((result) => {
       this.deleteId = '';

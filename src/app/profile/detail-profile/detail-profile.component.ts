@@ -17,7 +17,7 @@ import { Employee } from 'src/app/models/employee';
 export class DetailProfileComponent implements OnInit {
   doing= false;
   employee: Employee;
-  url = 'http://localhost:3000/api/v1/users/detail'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/users/detail'
   @Input("id")
   Id!: string;
 

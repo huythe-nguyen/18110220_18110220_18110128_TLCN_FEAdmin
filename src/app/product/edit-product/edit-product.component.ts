@@ -12,14 +12,14 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
-  
+
   doing=false;
   product: Product;
   url1='http://localhost:3000/api/v1/admin/product/edit'
 
   brand!: Brand[];
   btnDisabled= false;
-  url='http://localhost:3000/api/v1/admin/brand/list'
+  url='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/list'
   @Input("id")
   editId!: string;
 

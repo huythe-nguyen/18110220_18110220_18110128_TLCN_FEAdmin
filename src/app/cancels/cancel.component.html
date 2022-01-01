@@ -40,6 +40,11 @@
                     </form>
                     <div class="card-body">
                       <div class="table-responsive">
+                        <div *ngIf="btnDisabled" class="m-auto">
+                          <h1 class="text-center display-3 mt-5">
+                            <i class="fas fa-spinner fa spin"></i>
+                          </h1>
+                        </div>
                         <div class="btn-group"  role="group" aria-label="Basic example" style="margin-left: 66%;">
                           <button type="button" (click)="Loadday(0)" class="btn btn-info" >Day</button>
                           <button type="button" (click)="Loadday(7)"class="btn btn-light">Week</button>
@@ -51,6 +56,7 @@
                           <i class="fas fa-download"></i></button>
                         </div>
                         <table class="table"  id="excel-table">
+
                           <thead class="text-primary">
                             <th>No</th>
                             <th>Mã giỏ hàng</th>

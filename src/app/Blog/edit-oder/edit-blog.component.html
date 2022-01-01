@@ -15,10 +15,16 @@
           </h1>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-4">
             <div class="form-group">
               <label class="bmd-label-floating">Mã sản phẩm</label>
-              <input type="text" name="product" id="product" value="{{review.product}}" class="form-control" />
+              <input type="text" name="product" id="product" value="{{product.productCode}}" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label class="bmd-label-floating">Tên sản phẩm</label>
+              <input type="text" name="product" id="product" value="{{product.productName}}" class="form-control" />
             </div>
           </div>
         </div>
@@ -35,6 +41,12 @@
           </div>
         </div>
         <div class="row">
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Khách hàng: {{employee.displayName}}</label>
+            </div>
+          </div>
           <div class="col-md-12">
             <div class="form-group">
               <label class="bmd-label-floating">Đánh giá</label>

@@ -7,6 +7,8 @@ import { DataService } from 'src/app/services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Reviews } from '../../models/review';
+import { Product } from 'src/app/models/product';
+import { Employee } from 'src/app/models/employee';
 
 
 @Component({
@@ -18,8 +20,12 @@ export class EditBlogComponent implements OnInit {
 
   doing=false;
   review: Reviews;
-  url = 'http://localhost:3000/api/v1/admin/product/review'
-  url1='http://localhost:3000/api/v1/review/adminreview'
+  product: Product;
+  employee: Employee;
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/review'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/review/adminreview'
+  url2='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/edit'
+  url3 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/users/detail'
   @Input("id")
   editId!: string;
 
@@ -41,15 +47,24 @@ export class EditBlogComponent implements OnInit {
     // })
   ngOnInit() {
     this.doing=true;
-
     this.rest.getOne(this.url,this.editId)
       .then(data =>{
         this.doing=false;
         this.review =(data as {data: Reviews}).data;
+        this.rest.getOne(this.url2,this.review.product)
+        .then(data =>{
+          this.product =(data as {product: Product}).product;
+        })
+        console.log(this.review.user)
+        this.rest.getOne(this.url3,this.review.user.id)
+        .then(data =>{
+          this.employee =(data as {employee: Employee}).employee;
+        })
       }).catch(error =>{
         this.doing =false;
         this.data.error(error['message'])
       });
+
   }
   open(content: TemplateRef<any>){
     this.modelService.open(content, {ariaDescribedBy: 'modal-basic-title'});

@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   oder1!: Carts[];
   oder2!: Carts[];
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/oder'
-  url1 = 'http://localhost:3000/api/v1/admin/oder/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/oder/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';
@@ -77,6 +77,7 @@ export class HomeComponent implements OnInit {
         })
     }
     this.rest.getCountDashboard(this.url1,this.day,'unconfirmed').then(data => {
+      this.btnDisabled = false;
       let value = data as { count:number}
       this.lenght= value.count;
       this.btnDisabled = false;

@@ -32,12 +32,12 @@ export class AddProductComponent implements OnInit {
   tests: Observable<any[]>;
   saving=false;
   product: Product;
-  url1='http://localhost:3000/api/v1/admin/product/add'
-  messerr:string
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/add'
+  messerr=''
   mess:string
   brands!: Brand[];
   btnDisabled= false;
-  url2='http://localhost:3000/api/v1/admin/brand/list'
+  url2='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/list'
   @Output()
   savingFinshed: EventEmitter<string>= new EventEmitter<string>();
   constructor(private modelService: NgbModal,

@@ -17,8 +17,8 @@ export class BrandsComponent implements OnInit {
   }
   brands!: Brand[];
   btnDisabled= false;
-  url='http://localhost:3000/api/v1/admin/brand'
-  url1='http://localhost:3000/api/v1/admin/brand/count'
+  url='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/count'
   deleteId!:string;
   confirmMessage='';
   key='';

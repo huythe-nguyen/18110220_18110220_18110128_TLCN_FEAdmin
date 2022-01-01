@@ -18,7 +18,7 @@ export class DetailCartComponent implements OnInit {
   doing= false;
   cart: Carts;
   itemCart: CartItem;
-  url = 'http://localhost:3000/api/v1/admin/cart/detail'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/cart/detail'
   @Input("id")
   Id!: string;
 

@@ -24,7 +24,7 @@ export class AddBrandsComponent implements OnInit {
   saving=false;
   brand: Brand;
   err=''
-  url1='http://localhost:3000/api/v1/admin/brand/add'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/add'
   @Output()
   savingFinshed: EventEmitter<string>= new EventEmitter<string>();
 

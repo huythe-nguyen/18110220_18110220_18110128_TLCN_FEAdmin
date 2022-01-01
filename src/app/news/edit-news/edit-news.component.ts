@@ -29,7 +29,7 @@ export class EditNewsComponent implements OnInit {
   tests: Observable<any[]>;
   doing=false;
   news: News;
-  url1='http://localhost:3000/api/v1/admin/new/edit'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/new/edit'
   @Input("id")
   editId!: string;
   err=''

@@ -19,8 +19,8 @@ export class ProductComponent implements OnInit {
   }
   product!: Product[];
   btnDisabled = false;
-  url = 'http://localhost:3000/api/v1/admin/product'
-  url1 = 'http://localhost:3000/api/v1/admin/product/count'
+  url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/count'
 
   deleteId!: string;
   confirmMessage = '';

@@ -14,7 +14,7 @@ export class EditBrandsComponent implements OnInit {
 
   doing=false;
   brand: Brand;
-  url1='http://localhost:3000/api/v1/admin/brand/edit'
+  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/brand/edit'
   @Input("id")
   editId!: string;
 

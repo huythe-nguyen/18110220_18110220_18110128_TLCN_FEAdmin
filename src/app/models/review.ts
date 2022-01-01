@@ -3,7 +3,9 @@ export class Reviews{
   review!:string;
   rating!: number;
   product!: string;
-  user!: string;
+  user!: {
+    id:string;
+  }
   timeOrder!: Date;
   state!: string;
   adminReview!: string;
