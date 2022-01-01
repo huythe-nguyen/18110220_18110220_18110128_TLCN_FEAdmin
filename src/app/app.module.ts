@@ -46,7 +46,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { environment } from "src/environments/environment";
+import { firebase } from "./environments/environment";
 import { ImageComponent } from './image/image.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponentTest } from './dashboard/dashboardtest.component';
@@ -131,7 +131,7 @@ import { EditBlogComponent } from './Blog/edit-oder/edit-blog.component';
     ButtonsModule,
     CommonModule,
     IonicModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebase),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
