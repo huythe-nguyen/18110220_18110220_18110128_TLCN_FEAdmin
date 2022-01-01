@@ -13,14 +13,14 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import * as customBuild from '../../ckCustomBuild/build/ckEditor';
+
 @Component({
   selector: 'app-edit-news',
   templateUrl: './edit-news.component.html',
   styleUrls: ['./edit-news.component.css']
 })
 export class EditNewsComponent implements OnInit {
-  public Editor = customBuild;
+ 
 
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;

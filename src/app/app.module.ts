@@ -46,7 +46,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { environment } from "../environments/environment";
+import { environment } from "src/environments/environment";
 import { ImageComponent } from './image/image.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponentTest } from './dashboard/dashboardtest.component';
