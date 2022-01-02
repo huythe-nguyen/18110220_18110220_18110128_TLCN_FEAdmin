@@ -57,7 +57,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { EditDeliveryComponent } from './delivery/edit-delivery/edit-delivery.component';
 import { FirebaseService } from './services/firebase.service';
 import { CancelComponent } from './cancels/cancel.component';
-import { DetailCancelComponent } from './cancels/detail-cancel/detail-oder.component';
+import { DetailCancelComponent } from './cancels/detail-cancel/detail-cancel.component';
 import { SuceessComponent } from './order-suceess/suceess.component';
 import { DetailSuceessComponent } from './order-suceess/detail-Suceess/detail-oder.component';
 import { DiscountComponent } from './discount/discount.component';

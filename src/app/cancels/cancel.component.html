@@ -73,9 +73,9 @@
                               <td>{{item.timeOrder|date}}</td>
                               <td class="text-primary">{{item.total|number: '2.'}}</td>
                               <td>
-                                <app-detail-oder [id]="item.id" (updateFinished)="finishAndAlert($event)">
+                                <app-detail-cancel [id]="item.id" (updateFinished)="finishAndAlert($event)">
 
-                                </app-detail-oder>
+                                </app-detail-cancel>
                               </td>
                             </tr>
                           </tbody>

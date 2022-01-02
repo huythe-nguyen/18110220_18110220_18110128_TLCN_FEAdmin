@@ -2,7 +2,7 @@
   <form #productAddForm="ngForm">
     <ng-template #content let-c="close" let-d="dismiss">
       <div class="modal-header">
-        <h3 class="modal-title">Thông Tin Đơn Hàng</h3>
+        <h4 class="modal-title">Thông Tin Đơn Hàng</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -91,32 +91,25 @@
               </div>
             </div>
           </div>
-        <div class="row">
-          <div class="col-md-12">
-            <label class="bmd-label-floating">Trạng thái</label>
-            <select
-              name="status" id="status"
-              [value]="oder.state"
-
-              class="custom-select mb-3"
-            >
-            <option value="success">Giao hàng thành công</option>
-            </select>
-          </div>
-          <div class="col-md-12">
-            <label class="bmd-label-floating">Ghi chú</label>
-            <textarea style="height: 300px;" type="text" name="description" id="description"
-              [value]="oder.note"
-              formControlName="description" class="form-control"></textarea>
+          <div class="row">
+            <div class="col-md-12">
+              <label class="bmd-label-floating">Trạng thái</label>
+              <select name="status" id="status" value="{{oder.state}}" class="custom-select mb-3">
+                <option value="cancel">Huy đơn hàng</option>
+              </select>
+            </div>
+            <div class="col-md-12">
+              <label class="bmd-label-floating">Lí do Hủy đơn</label>
+              <textarea style="height: 300px;" type="text" name="description" id="description"
+              value="{{oder.note}}"formControlName="description" class="form-control"></textarea>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer" >
-        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+        </div>
     </ng-template>
-    <button  rel="tooltip" title="View Task"
-    class="btn btn-sm btn-outline-primary " (click)="open(content)">
-    <i class="fas fa-eye"></i></button>
+    <button rel="tooltip" title="View Task" class="btn btn-sm btn-outline-primary " (click)="open(content)">
+      <i class="fas fa-eye"></i></button>
   </form>
 </div>
