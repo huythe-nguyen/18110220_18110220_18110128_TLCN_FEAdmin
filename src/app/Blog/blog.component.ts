@@ -68,5 +68,9 @@ export class BlogComponent implements OnInit {
       console.log(value);
     })
   }
+  finishAndAlert( message: string){
+    this.data.success(message);
+    this.ngOnInit();
+  }
 
 }
