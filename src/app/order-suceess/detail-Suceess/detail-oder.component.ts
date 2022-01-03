@@ -27,9 +27,7 @@ export class DetailSuceessComponent implements OnInit {
 
   constructor(private modelService: NgbModal,
     private rest:RestApiService,
-    private data: DataService,
-    private fb: FormBuilder,
-    private router: Router,) {
+    private data: DataService) {
       this.oder= new Carts;
 
      }
