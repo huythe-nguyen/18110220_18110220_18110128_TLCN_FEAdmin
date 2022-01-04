@@ -68,7 +68,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="bmd-label-floating">Ngày dự kiến nhận hàng</label>
-              <input type="date" name="timeSucess" id="timeSucess" 
+              <input type="date" name="timeSucess" id="timeSucess"
                 value="{{oder.timeSucess|date: 'yyyy-MM-dd'}}"  class="form-control" />
             </div>
             </div>
@@ -105,8 +105,8 @@
           </div>
           <div class="col-md-12">
             <label class="bmd-label-floating">Ghi chú</label>
-            <textarea style="height: 300px;" type="text" name="description" id="description"
-              formControlName="description" class="form-control"></textarea>
+            <textarea style="height: 300px;" type="text" name="note" id="note"
+            [value]="oder.note" class="form-control"></textarea>
           </div>
         </div>
       </div>
