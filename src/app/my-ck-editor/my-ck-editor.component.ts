@@ -1,6 +1,6 @@
 import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as customBuild from '../ckCustomBuild/build/ckEditor';
 
 @Component({
   selector: 'app-my-ck-editor',
@@ -16,7 +16,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class MyCkEditorComponent implements OnInit, ControlValueAccessor {
 
-  public Editor = ClassicEditor;
+  public Editor = customBuild;
   @Input() readonly: boolean = false;
 
   private _value: string = '';

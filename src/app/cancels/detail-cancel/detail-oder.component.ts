@@ -10,9 +10,9 @@ import { Carts } from 'src/app/models/cart';
 
 
 @Component({
-  selector: 'app-detail-cancel',
-  templateUrl: './detail-cancel.component.html',
-  styleUrls: ['./detail-cancel.component.css']
+  selector: 'app-detail-oder',
+  templateUrl: './detail-oder.component.html',
+  styleUrls: ['./detail-oder.component.css']
 })
 export class DetailCancelComponent implements OnInit {
 

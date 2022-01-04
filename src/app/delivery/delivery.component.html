@@ -37,13 +37,13 @@
                     </div>
                   </div>
                 </form>
+                <div *ngIf="btnDisabled" class="m-auto">
+                  <h1 class="text-center display-3 mt-5">
+                    <i class="fas fa-spinner fa spin"></i>
+                  </h1>
+                </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <div *ngIf="btnDisabled" class="m-auto">
-                    <h1 class="text-center display-3 mt-5">
-                      <i class="fas fa-spinner fa spin"></i>
-                    </h1>
-                  </div>
                   <table class="table">
                     <thead class="text-primary">
                       <th>No</th>
@@ -54,7 +54,6 @@
                       <th></th>
                     </thead>
                     <tbody>
-
                       <tr *ngFor="let item of oder3, let i = index ">
                         <td>{{i+1}}</td>
                         <td>{{item.id}}</td>
@@ -68,8 +67,8 @@
                         </td>
                       </tr>
                     </tbody>
-                    <div *ngIf="oder3.length==0" style="margin-left: 50%;"> Không có đơn hàng đang được giao</div>
                   </table>
+                  <div *ngIf="oder3.length==0" style="margin-left: 40%;"> Không có đơn hàng đang được giao</div>
                 </div>
                 <form>
                   <mat-paginator [length]="count2" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"

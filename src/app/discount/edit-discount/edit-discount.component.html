@@ -3,7 +3,7 @@
   <form #productAddForm="ngForm" [formGroup]="infoNew">
     <ng-template #content let-c="close" let-d="dismiss">
       <div class="modal-header">
-        <h4 class="modal-title">Edit voucher</h4>
+        <h4 class="modal-title">Chỉnh sửa  khuyến mãi</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -138,7 +138,7 @@
                 [min]="discount.starDay"
                 [value]="discount.endDay | date: 'yyyy-MM-dd'"
                 class="form-control"
-
+                
               />
               <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!infoNew.get('endDay')?.valid && infoNew.get('endDay')?.touched " >
                 <i class="fa fa-times-circle" style="color:firebrick;"></i>

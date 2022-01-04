@@ -68,7 +68,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label class="bmd-label-floating">Ngày dự kiến nhận hàng</label>
-              <input type="date" name="timeSucess" id="timeSucess"
+              <input type="date" name="timeSucess" id="timeSucess" 
                 value="{{oder.timeSucess|date: 'yyyy-MM-dd'}}"  class="form-control" />
             </div>
             </div>
@@ -96,7 +96,7 @@
             <label class="bmd-label-floating">Trạng thái</label>
             <select
               name="status" id="status"
-              [value]="oder.state"
+              [(ngModel)]="oder.state"
 
               class="custom-select mb-3"
             >
@@ -106,7 +106,6 @@
           <div class="col-md-12">
             <label class="bmd-label-floating">Ghi chú</label>
             <textarea style="height: 300px;" type="text" name="description" id="description"
-              [value]="oder.note"
               formControlName="description" class="form-control"></textarea>
           </div>
         </div>

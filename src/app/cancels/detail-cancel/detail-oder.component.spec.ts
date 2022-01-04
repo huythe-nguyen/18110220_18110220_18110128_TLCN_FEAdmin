@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { DetailCancelComponent } from './detail-cancel.component';
+import { DetailCancelComponent } from './detail-oder.component';
 
 describe('DetailCancelComponent', () => {
   let component: DetailCancelComponent;

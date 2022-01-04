@@ -46,7 +46,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { firebase } from "./environments/environment";
+import { environment } from "../environments/environment";
 import { ImageComponent } from './image/image.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponentTest } from './dashboard/dashboardtest.component';
@@ -57,7 +57,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { EditDeliveryComponent } from './delivery/edit-delivery/edit-delivery.component';
 import { FirebaseService } from './services/firebase.service';
 import { CancelComponent } from './cancels/cancel.component';
-import { DetailCancelComponent } from './cancels/detail-cancel/detail-cancel.component';
+import { DetailCancelComponent } from './cancels/detail-cancel/detail-oder.component';
 import { SuceessComponent } from './order-suceess/suceess.component';
 import { DetailSuceessComponent } from './order-suceess/detail-Suceess/detail-oder.component';
 import { DiscountComponent } from './discount/discount.component';
@@ -131,7 +131,7 @@ import { EditBlogComponent } from './Blog/edit-oder/edit-blog.component';
     ButtonsModule,
     CommonModule,
     IonicModule,
-    AngularFireModule.initializeApp(firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,

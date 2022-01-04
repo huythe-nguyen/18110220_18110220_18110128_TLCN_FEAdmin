@@ -131,6 +131,9 @@ export class ProductComponent implements OnInit {
         this.modalService.dismissAll();
         this.ngOnInit();
       })
+        .catch(error => {
+          this.data.error(error['message']);
+        })
     }
   }
   exportExcel() {

@@ -88,6 +88,7 @@
                 <input
                   type="date" name="timeSucess" id="timeSucess"
                   value="{{oder.timeSucess|date: 'yyyy-MM-dd'}}"
+                  formControlName="timeSucess"
                   class="form-control"
                 />
             </div>
@@ -128,7 +129,7 @@
           </div>
           <div class="col-md-9">
             <select
-              name="stateOrder" id="stateOrder"
+              name="status" id="status"
               value="{{oder.stateOrder}}"
 
               class="custom-select mb-3"
@@ -142,23 +143,25 @@
           <div class="col-md-12">
             <label class="bmd-label-floating">Trạng thái</label>
             <select
-              name="state" id="state"
+              name="status" id="status"
               [(ngModel)]="oder.state"
 
               class="custom-select mb-3"
             >
               <option value="confimed">Xác nhận và giao hàng</option>
-              <option value="cancel">Hủy đơn hàng</option>
+              <option value="cancel">Huy đơn hàng</option>
               <option value="success">Giao hàng thành công</option>
             </select>
           </div>
         </div>
+
           <div class="col-md-12">
             <label class="bmd-label-floating">Ghi chú</label>
             <textarea style="height: 300px;" type="text" name="note" id="note"
             [(ngModel)]="oder.note"  class="form-control"></textarea>
           </div>
-        </div>
+
+      </div>
       <div class="modal-footer" >
         <button type="submit" class="btn btn-primary pull-right" (click)="update()">Edit</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>

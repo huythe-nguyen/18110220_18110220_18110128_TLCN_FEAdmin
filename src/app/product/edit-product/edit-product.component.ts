@@ -15,7 +15,7 @@ export class EditProductComponent implements OnInit {
 
   doing=false;
   product: Product;
-  url1='https://shopgiay-be-tlcn.herokuapp.com/api/v1/admin/product/edit'
+  url1='http://localhost:3000/api/v1/admin/product/edit'
 
   brand!: Brand[];
   btnDisabled= false;
