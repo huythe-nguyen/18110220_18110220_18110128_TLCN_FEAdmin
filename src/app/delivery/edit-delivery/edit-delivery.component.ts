@@ -56,7 +56,6 @@ export class EditDeliveryComponent implements OnInit {
           this.doing=false;
           this.modelService.dismissAll();
           this.ngOnInit()
-          console.log(this.data)
           if(this.oder.state=='cancel'){
             this.router.navigate(['/cancel'])
           }else{
