@@ -1,6 +1,6 @@
 import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ClassicEditor }  from '@ckeditor/ckeditor5-build-classic/build/ckeditor';
 
 @Component({
   selector: 'app-my-ck-editor',
