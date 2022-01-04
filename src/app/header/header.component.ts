@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
   refreshToken='';
   employee:Employee
-  url='http://localhost:3000/api/v1/auth/logout'
+  url='https://shopgiay-be-tlcn.herokuapp.com/api/v1/auth/logout'
   constructor( private data: DataService,private router: Router
     ,private rest:RestApiService) {
 
