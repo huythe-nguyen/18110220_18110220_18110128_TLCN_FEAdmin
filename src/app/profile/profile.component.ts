@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   employee!: Employee[];
   btnDisabled = false;
   url = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/users'
-  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/users/count'
+  url1 = 'https://shopgiay-be-tlcn.herokuapp.com/api/v1/users/lenght/count'
   deleteId!: string;
   confirmMessage = '';
   key = '';
