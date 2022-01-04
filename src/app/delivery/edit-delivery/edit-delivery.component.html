@@ -87,8 +87,7 @@
                 <label class="bmd-label-floating">Ngày dự kiến nhận hàng</label>
                 <input
                   type="date" name="timeSucess" id="timeSucess"
-                  value="{{oder.timeSucess|date: 'yyyy-MM-dd'}}"
-                  formControlName="timeSucess"
+                  [value]="oder.dateOder|date: 'yyyy-MM-dd'"
                   class="form-control"
                 />
             </div>
@@ -97,7 +96,7 @@
             <div class="form-group">
               <label class="bmd-label-floating">Mã giỏ hàng</label>
               <input
-                type="text" name="idCart" id="idCart"
+                type="text" name="id" id="id"
                 value="{{oder.id}}"
 
                 class="form-control"
@@ -118,7 +117,7 @@
             <div class="form-group">
               <label class="bmd-label-floating">Mã  đơn hàng </label>
               <input
-                type="text" name="total" id="total"
+                type="text" name="codeOder" id="codeOder"
                 value="{{oder.codeOder}}"
                 class="form-control"
               />
