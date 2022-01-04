@@ -50,7 +50,7 @@ export class EditDeliveryComponent implements OnInit {
   }
   update(){
     this.doing=true;
-    console.log(this.oder.note)
+    console.log(this.oder)
     this.rest.put(this.url1,this.editId,this.oder)
       .then(data =>{
           this.doing=false;
