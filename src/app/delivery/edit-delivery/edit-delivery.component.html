@@ -154,15 +154,12 @@
             </select>
           </div>
         </div>
-        <div class="row" *ngIf="oder.state=='cancel'">
           <div class="col-md-12">
-            <label class="bmd-label-floating">Lí do Hủy đơn</label>
+            <label class="bmd-label-floating">Ghi chú</label>
             <textarea style="height: 300px;" type="text" name="note" id="note"
             [(ngModel)]="oder.note"  class="form-control"></textarea>
           </div>
         </div>
-
-      </div>
       <div class="modal-footer" >
         <button type="submit" class="btn btn-primary pull-right" (click)="update()">Edit</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>

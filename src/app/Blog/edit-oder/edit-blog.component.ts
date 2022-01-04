@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Reviews } from '../../models/review';
 import { Product } from 'src/app/models/product';
 import { Employee } from 'src/app/models/employee';
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
@@ -36,7 +37,8 @@ export class EditBlogComponent implements OnInit {
     private rest:RestApiService,
     private data: DataService,
     private fb: FormBuilder,
-    private router: Router,) {
+    private router: Router,
+    private notificationService: NotificationService) {
       this.review= new Reviews;
 
      }
@@ -75,6 +77,7 @@ export class EditBlogComponent implements OnInit {
       .then(data =>{
           this.doing=false;
           this.modelService.dismissAll();
+          this.notificationService.success('successfully')
           this.ngOnInit()
       }).catch(error =>{
         this.doing =false;
