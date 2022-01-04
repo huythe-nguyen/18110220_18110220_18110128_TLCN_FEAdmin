@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('name',value.name);
           console.log('user', value.id)
           this.router.navigate(['/home'])
+          this.btnDisabled=false;
         }else{
           window.alert("Tài khoản của bạn chưa được cấp quyền!")
           this.router.navigate(['/login'])
