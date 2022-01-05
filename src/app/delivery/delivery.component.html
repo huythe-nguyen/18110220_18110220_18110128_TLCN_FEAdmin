@@ -37,12 +37,12 @@
                     </div>
                   </div>
                 </form>
-                <div *ngIf="btnDisabled" class="m-auto">
+                <div style="margin-left: 50%;" *ngIf="btnDisabled">
                   <h1 class="text-center display-3 mt-5">
-                    <i class="fas fa-spinner fa spin"></i>
+                    <mat-spinner></mat-spinner>
                   </h1>
                 </div>
-              <div class="card-body">
+              <div class="card-body" *ngIf="!btnDisabled">
                 <div class="table-responsive">
                   <table class="table">
                     <thead class="text-primary">
