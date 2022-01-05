@@ -33,6 +33,7 @@ export class EditNewsComponent implements OnInit {
   @Input("id")
   editId!: string;
   err=''
+  htmlFormat=''
   @Output()
   updateFinished: EventEmitter<string> = new EventEmitter<string>();
   public Data: string = "hello"
@@ -70,6 +71,7 @@ export class EditNewsComponent implements OnInit {
       .then(data =>{
         this.doing=false;
         this.news =(data as {news: News}).news;
+        this.htmlFormat= this.news.htmlData.split('&lt;').join('<');
       }).catch(error =>{
         this.doing =false;
         this.data.error(error['message'])
@@ -112,13 +114,12 @@ export class EditNewsComponent implements OnInit {
   }
   update(){
     this.doing=true;
-    console.log(this.news.endDay)
+    this.news.htmlData=this.htmlFormat
     this.rest.put(this.url1,this.editId,this.news)
       .then(data =>{
         this.doing=false;
-        this.updateFinished.emit('News is update')
+        this.updateFinished.emit('successfully')
         this.modelService.dismissAll();
-        this.news = new News();
       }).catch(error =>{
         this.doing =false;
         this.data.error(error['message'])

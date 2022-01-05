@@ -106,7 +106,7 @@ export class AddNewsComponent implements OnInit {
       .then(data =>{
         this.saving=false;
         // this.savingFinshed.emit('Đã thêm bài viết: ' + this.news.title)
-        // this.modelService.dismissAll();
+        this.modelService.dismissAll();
         this.ngOnInit()
         this.notificationService.success('successfully')
         this.dialog.closeAll()
