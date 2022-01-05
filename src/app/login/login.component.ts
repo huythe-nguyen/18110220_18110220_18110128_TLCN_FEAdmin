@@ -43,13 +43,14 @@ export class LoginComponent implements OnInit {
         }else{
           window.alert("Tài khoản của bạn chưa được cấp quyền!")
           this.router.navigate(['/login'])
+          this.employee= new Employee;
+          this.btnDisabled=false;
         }
       })
       .catch(error=>{
         this.data.error('Incorrect email or password');
         this.btnDisabled=false;
         this.mess='Incorrect email or password';
-        console.log(this.data)
       })
     }
   }
