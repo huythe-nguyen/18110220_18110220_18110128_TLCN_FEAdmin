@@ -74,12 +74,13 @@
                           </tr>
                         </tbody>
                       </table>
-                    </div>
-                    <form>
-                      <mat-paginator [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
-                      aria-label="Select page">
-                    </mat-paginator>
-                    </form>
+                      <span *ngIf="cart.length==0" style="margin-left: 50%;">Không có dữ liệu</span>
+                      </div>
+                      <form>
+                        <mat-paginator *ngIf="lenght!=0" [length]="lenght" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" (page)="LoadPagesize($event)"
+                        aria-label="Select page">
+                      </mat-paginator>
+                      </form>
                   </div>
                 </div>
               </div>
