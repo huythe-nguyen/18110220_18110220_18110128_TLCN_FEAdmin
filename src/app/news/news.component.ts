@@ -79,16 +79,7 @@ export class NewsComponent implements OnInit {
     this.new = new News
 
   }
-  openDialog(){
-    this.dialog.open(AddNewsComponent,{height: '600px',
-    width: '600px'})
-    this.ngOnInit()
-  }
-  openDialogEdit(id:string){
-    this.dialog.open(EditNewsComponent,{height: '600px',
-    width: '600px'})
-    this.ngOnInit()
-  }
+
   ngOnInit() {
     this.btnDisabled = true;
     if (this.key == '') {
@@ -134,6 +125,7 @@ export class NewsComponent implements OnInit {
       this.rest.delete(this.url, this.deleteId).then(data => {
         this.modalService.dismissAll();
         this.ngOnInit();
+        this.data.message=''
       })
         .catch(error => {
           this.data.error(error['message']);
