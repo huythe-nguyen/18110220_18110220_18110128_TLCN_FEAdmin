@@ -1,20 +1,20 @@
 <div id="newsadd">
+  
   <ng-template #content let-c="close" let-d="dismiss">
-  <form [formGroup]="infoNew">
-      <div class="modal-header">
-        <h4 class="modal-title">Add news</h4>
-        <button type="button" class="close" aria-label="Close" (click)="onclose()">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <form #productAddForm="ngForm" [formGroup]="infoNew">
+    <div class="modal-header">
+      <h4 class="modal-title">Add news</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-message></app-message>
+      <div *ngIf="saving" class="m-auto">
+        <h1 class="text-center display-3 mt-5">
+          <i class="fas fa-spinner fa spin"></i> </h1>
       </div>
-      <div class="modal-body">
-        <app-message></app-message>
-        <div *ngIf="saving" class="m-auto">
-          <h1 class="text-center display-3 mt-5">
-            <i class="fas fa-spinner fa spin"></i>
-          </h1>
-        </div>
-        <div class="row">
+      <div class="row">
           <div class="col-md-12">
             <div class="form-group">
               <label class="bmd-label-floating">Tên bài viết</label>
@@ -132,7 +132,8 @@
             [disabled]="! infoNew.valid">Add</button>
         </div>
   </form>
-  <app-my-ck-editor [(ngModel)]="Data"></app-my-ck-editor>
+  <app-my-ck-editor [(ngModel)]="Data" ></app-my-ck-editor>
+
   </ng-template>
   <button class="btn btn-sn btn-outline-primary" (click)="open(content)">THÊM BÀI VIẾT</button>
 </div>
