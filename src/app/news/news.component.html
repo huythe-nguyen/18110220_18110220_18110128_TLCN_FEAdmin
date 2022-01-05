@@ -40,9 +40,10 @@
                               <i class="material-icons">search</i>
                               <div class="ripple-container"></div>
                             </button>
-
                           </div>
-                          <!-- <button class="btn btn-sn btn-outline-primary" (click)="openDialog()">Thêm bài viết</button> -->
+                          <div>
+                            <app-add-news (savingFinshed)="finishAndAlert($event)"></app-add-news>
+                          </div>
                         </div>
                       </div>
                     </form>
@@ -51,15 +52,12 @@
                         <mat-spinner></mat-spinner>
                       </h1>
                     </div>
-                    <div class="card-body" *ngIf="!btnDisabled">
+                      <div class="card-body" *ngIf="!btnDisabled">
                       <div class="table-responsive">
+
                         <div class="alert alert-success" *ngIf="mess!=''">
                           <span>{{mess}}</span>
                         </div>
-                        <div>
-                            <app-add-news (savingFinshed)="finishAndAlert($event)"></app-add-news>
-                          </div>
-
                         <table class="table">
                           <thead class="text-primary">
                             <th>No</th>
