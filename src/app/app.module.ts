@@ -1,7 +1,7 @@
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-
+import { ClassicEditor }  from '@ckeditor/ckeditor5-build-classic';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -41,7 +41,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from "@angular/fire/storage";
@@ -138,7 +138,8 @@ import { EditBlogComponent } from './Blog/edit-oder/edit-blog.component';
     CKEditorModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [RestApiService,DataService,FirebaseService
